@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:skinalertsv2/Frame/frame_view.dart';
+import 'package:skinalertsv2/Pages/admin_view.dart';
+import 'package:skinalertsv2/Pages/history_view.dart';
 import 'package:skinalertsv2/Pages/home_view.dart';
 import 'package:skinalertsv2/Pages/profile_view.dart';
+import 'package:skinalertsv2/Pages/result_view.dart';
 import 'package:skinalertsv2/Routes/app_routes.dart';
 import 'package:skinalertsv2/Utils/size_config.dart';
 import 'package:skinalertsv2/Pages/login_view.dart';
@@ -52,7 +56,7 @@ class SkinAlerts extends StatelessWidget {
       ),
 
       // Mengatur halaman awal aplikasi menjadi `AuthorizeView`.
-      home: const ProfileView(),
+      home: const FrameView(),
 
       // Mengatur rute aplikasi menggunakan `AppRoutes.routes`.
       getPages: AppRoutes.routes,

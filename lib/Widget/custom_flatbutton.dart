@@ -4,7 +4,6 @@ import 'package:skinalertsv2/Utils/app_colours.dart';
 import 'package:skinalertsv2/Widget/custom_ripplebutton.dart';
 import '../../../utils/size_config.dart';
 
-
 class CustomFlatButton extends StatelessWidget {
   const CustomFlatButton({
     super.key,
@@ -105,12 +104,12 @@ class CustomFlatButton extends StatelessWidget {
                             style: GoogleFonts.leagueSpartan(
                                 fontSize: SizeConfig.horizontal(textSize ?? 3),
                                 color: loading
-                                    ? textColorLoading ?? AppColors.textwhitecolour
+                                    ? textColorLoading ??
+                                        AppColors.textwhitecolour
                                     : textColor ?? AppColors.textwhitecolour)),
                 ],
               ),
             if (loading) const SizedBox.shrink() else _buildWrapper(),
-
           ],
         ),
       ),

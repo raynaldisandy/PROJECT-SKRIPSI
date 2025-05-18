@@ -118,15 +118,16 @@ class CustomTextField extends StatelessWidget {
                                   ),
                                   fillColor: AppColors.buttoncolorblue,
                                   filled: true,
-                                  border: OutlineInputBorder(borderSide: BorderSide.none,
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(SizeConfig.horizontal(
                                               borderRadius ?? 4)))),
                                   labelText: hintText,
                                   floatingLabelBehavior:
                                       FloatingLabelBehavior.never,
-                                  labelStyle:
-                                      leagueSpartanStyle().labelStyle(hintTextColor))),
+                                  labelStyle: leagueSpartanStyle()
+                                      .labelStyle(hintTextColor))),
                         )
                       : TextFormField(
                           autofillHints: autofillHint,
@@ -147,17 +148,19 @@ class CustomTextField extends StatelessWidget {
                               hintMaxLines: 4,
                               fillColor: AppColors.buttoncolorblue,
                               filled: true,
-                              border: OutlineInputBorder(borderSide: BorderSide.none,
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
                                   borderRadius: BorderRadius.all(
                                       Radius.circular(SizeConfig.horizontal(
                                           borderRadius ?? 4)))),
                               labelText: labelText,
                               hintText: hintText,
-                              hintStyle: leagueSpartanStyle().labelStyle(hintTextColor),
+                              hintStyle: leagueSpartanStyle()
+                                  .labelStyle(hintTextColor),
                               floatingLabelBehavior:
                                   FloatingLabelBehavior.never,
-                              labelStyle:
-                                  leagueSpartanStyle().labelStyle(hintTextColor)))))
+                              labelStyle: leagueSpartanStyle()
+                                  .labelStyle(hintTextColor)))))
         ]);
   }
 }

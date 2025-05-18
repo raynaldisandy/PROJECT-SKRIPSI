@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
 import 'package:skinalertsv2/Utils/assets_list.dart';
+import 'package:skinalertsv2/Utils/enum.dart';
 import 'package:skinalertsv2/Utils/size_config.dart';
 import 'package:skinalertsv2/Utils/space_sizer.dart';
 
@@ -11,14 +12,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Scaffold(
-      body: Container(
+    return  Container(
         color: AppColors.backgroundcolor,
         child:SingleChildScrollView(
           child: Column(
             children: [
               SpaceSizer(
-                vertical: 10,
+                vertical: 5,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -50,8 +50,9 @@ class HomeView extends StatelessWidget {
                 vertical: 5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SpaceSizer(horizontal: 10,),
                   LeaguespartanTextView(
                     value: "News & Info",
                     color: AppColors.textblackcolour,
@@ -59,11 +60,6 @@ class HomeView extends StatelessWidget {
                   ),
                   SpaceSizer(
                     horizontal: 2,
-                  ),
-                  LeaguespartanTextView(
-                    value: "View All",
-                    color: AppColors.textblackcolour,
-                    fontWeight: FontWeight.bold,
                   ),
                 ],
               ),
@@ -95,11 +91,11 @@ class HomeView extends StatelessWidget {
                   AssetList.posterlogo,
                 ),
               ),
-              SpaceSizer(vertical: 2,)
+              SpaceSizer(vertical: 10,)
             ],
           ),
         ),
-      ),
+      
     );
   }
 }

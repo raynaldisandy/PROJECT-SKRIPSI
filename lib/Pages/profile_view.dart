@@ -11,32 +11,29 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: AppColors.backgroundcolor,
-        child: Center(
+    return Container(
+      color: AppColors.backgroundcolor,
+      child: Center(
+        child: SingleChildScrollView(
           child: Column(children: [
-            SpaceSizer(
-              vertical: 7,
-            ),
             LobstertwoTextView(
               value: "Profile",
               size: SizeConfig.blockSizeHorizontal * 10,
               color: AppColors.textbluecolour,
               fontWeight: FontWeight.bold,
             ),
-            SpaceSizer(vertical: 2,),
+            SpaceSizer(
+              vertical: 2,
+            ),
             CircleAvatar(
-              child:Align(
+              child: Align(
                 alignment: Alignment.bottomRight,
                 child: Container(
                   child: Icon(Icons.mode_edit_outline_outlined),
                   width: SizeConfig.horizontal(15),
                   height: SizeConfig.horizontal(15),
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.buttoncolorblue
-                  ),
+                      shape: BoxShape.circle, color: AppColors.buttoncolorblue),
                 ),
               ),
               backgroundColor: Colors.black,
@@ -60,9 +57,13 @@ class ProfileView extends StatelessWidget {
             SpaceSizer(
               vertical: 2,
             ),
-            CustomFlatButton(text: "Update", onTap: () {
-
-            },)
+            CustomFlatButton(
+              text: "Update",
+              onTap: () {},
+            ),
+            SpaceSizer(
+              vertical: 12,
+            ),
           ]),
         ),
       ),
