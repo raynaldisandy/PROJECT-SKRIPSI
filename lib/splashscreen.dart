@@ -15,7 +15,7 @@ class Splashscreen extends StatelessWidget {
     
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.textwhitecolour,
+          systemNavigationBarColor: AppColors.backgroundcolor,
           systemNavigationBarIconBrightness: Brightness.dark), 
       child: FrameScaffold(
         heightBar: 0,
@@ -23,7 +23,7 @@ class Splashscreen extends StatelessWidget {
         color: AppColors.backgroundcolor,
         statusBarColor: AppColors.backgroundcolor,
         colorScaffold: AppColors.backgroundcolor,
-        statusBarBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
         view:Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

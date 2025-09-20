@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:skinalertsv2/Controlers/frame_controller.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
 import 'package:skinalertsv2/Utils/assets_list.dart';
-import 'package:skinalertsv2/Utils/enum.dart';
 import 'package:skinalertsv2/Utils/size_config.dart';
 import 'package:skinalertsv2/Utils/space_sizer.dart';
 
@@ -11,6 +12,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FrameController frameController = Get.put(FrameController());
     SizeConfig().init(context);
     return  Container(
         color: AppColors.backgroundcolor,
@@ -24,6 +26,7 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
+                    child: Icon(Icons.person,size: SizeConfig.safeBlockHorizontal * 10,),
                     backgroundColor: Colors.black,
                     radius: SizeConfig.horizontal(10),
                   ),
@@ -34,9 +37,11 @@ class HomeView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      LeaguespartanTextView(
-                        value: "Hi John Doe.",
-                        color: AppColors.textblackcolour,
+                      Obx(()=>
+                         LeaguespartanTextView(
+                          value: frameController.username.value,
+                          color: AppColors.textblackcolour,
+                        ),
                       ),
                       LeaguespartanTextView(
                         value: "Good Morning and Keep Healthy",

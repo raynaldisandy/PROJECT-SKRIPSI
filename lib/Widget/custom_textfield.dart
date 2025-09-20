@@ -89,7 +89,7 @@ class CustomTextField extends StatelessWidget {
                           () => TextFormField(
                               autofillHints: autofillHint,
                               minLines: minLines,
-                              controller: controller,
+                              controller: passwordController,
                               focusNode: focusNode,
                               onChanged: onChanged,
                               keyboardType: TextInputType.text,

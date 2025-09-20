@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:skinalertsv2/Controlers/register_controller.dart';
 import 'package:skinalertsv2/Frame/frame_scaffold.dart';
+import 'package:skinalertsv2/Pages/login_view.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
@@ -16,6 +21,7 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final RegisterController registerController = Get.put(RegisterController());
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
             systemNavigationBarColor: AppColors.textwhitecolour,
@@ -31,7 +37,7 @@ class RegisterView extends StatelessWidget {
               child: Column(
                 children: [
                 SpaceSizer(
-                      vertical: 4,
+                      vertical: 3,
                     ),
                     LobstertwoTextView(
                       value: "Register",
@@ -40,22 +46,30 @@ class RegisterView extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                     SpaceSizer(
-                      vertical: 2,
+                      vertical: 1,
                     ),
-                    CustomTextField(title: "Nama"),
+                    CustomTextField(title: "Nama",controller:registerController.nameController ,),
                     SpaceSizer(
-                      vertical: 2,
+                      vertical: 1,
                     ),
-                    CustomTextField(title: "Password"),
-                    SpaceSizer(
-                      vertical: 2,
+                    CustomTextField(
+                      isPasswordField: true,
+                      title: "Password", passwordController: registerController.passwordController,),
+                      SpaceSizer(
+                      vertical: 1,
                     ),
-                    CustomTextField(title: "Email"),
+                    CustomTextField(
+                      isPasswordField: true,
+                      title: "Confirm Password", passwordController: registerController.confirmPasswordController,),
                     SpaceSizer(
-                      vertical: 2,
-                    ),CustomTextField(title: "No Handhphone"),
+                      vertical: 1,
+                    ),
+                    CustomTextField(title: "Email", controller: registerController.emailController,),
                     SpaceSizer(
-                      vertical: 2,
+                      vertical: 1,
+                    ),CustomTextField(title: "No Handhphone", controller: registerController.noHPController,),
+                    SpaceSizer(
+                      vertical: 1,
                     ),
                     LeaguespartanTextView(
                         value: "    By continuing, you agree to\nTerms of Use and Privacy Policy.",
@@ -66,7 +80,10 @@ class RegisterView extends StatelessWidget {
                   ),
                     CustomFlatButton(
                     text: "Create Account",
-                    onTap: () {},
+                    onTap: () async {
+                      await registerController.signUpWithEmailAndPassword();
+                      Get.off(const LoginView());
+                    },
                   ),
                   SpaceSizer(
                     vertical: 2,
@@ -85,7 +102,7 @@ class RegisterView extends StatelessWidget {
                   ),
                   CustomFlatButton(
                     text: "Continue With Google",
-                    onTap: () {},
+                    onTap: () => registerController.signInWithGoogle(),
                     backgroundColor: AppColors.buttoncolorblue,
                     image: AssetList.googleLogo,
                   ),

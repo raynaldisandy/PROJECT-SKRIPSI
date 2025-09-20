@@ -1,6 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:skinalertsv2/Controlers/frame_controller.dart';
+import 'package:skinalertsv2/Controlers/history_controller.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
@@ -14,76 +19,106 @@ class HistoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FrameController frameController = Get.put(FrameController());
     return Scaffold(
       backgroundColor: AppColors.backgroundcolor,
       body: Center(
         child: Container(
           width: SizeConfig.horizontal(90),
-          height: SizeConfig.horizontal(150),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(SizeConfig.horizontal(3)),
             border: Border.all(
               color: AppColors.textblackcolour,
-              ),
+            ),
           ),
-          child: Column(
-            children: [
-              SpaceSizer(vertical: 3,),
-              LobstertwoTextView(
-                value: "My History",
-                color: AppColors.textbluecolour,
-                size: SizeConfig.safeBlockHorizontal * 7,
-                fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SpaceSizer(
+                  vertical: 3,
                 ),
-                SpaceSizer(vertical: 5,),
-              Container(
-                child: Row(
-                  children: [
-                    SpaceSizer(horizontal: 2,),
-                    Container(
-                      width: SizeConfig.horizontal(20),
-                      height: SizeConfig.horizontal(20),
-                      color: Colors.blue,
-                    ),
-                      SpaceSizer(horizontal: 3,),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        LeaguespartanTextView(
-                          value: "01 April 2025 | 12.00 WIB",
-                          color: AppColors.textblackcolour,
-                          size: SizeConfig.safeBlockHorizontal * 2.5,
+                LobstertwoTextView(
+                  value: "My History",
+                  color: AppColors.textbluecolour,
+                  size: SizeConfig.safeBlockHorizontal * 7,
+                  fontWeight: FontWeight.bold,
+                ),
+                SpaceSizer(
+                  vertical: 5,
+                ),
+                Obx(
+                  () => ListView.builder(
+                    padding: EdgeInsets.all(SizeConfig.horizontal(1)),
+                    shrinkWrap: true,
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: frameController.historyList.length,
+                    itemBuilder: (context, index) => Container(
+                      margin: EdgeInsets.only(top: SizeConfig.horizontal(2)),
+                      child: Row(
+                        children: [
+                          SpaceSizer(
+                            horizontal: 2,
                           ),
-                        SpaceSizer(vertical: 1,),
-                        LeaguespartanTextView(
-                          value: "No Cancer Found",
-                          color: AppColors.textblackcolour,
-                          size: SizeConfig.safeBlockHorizontal * 2.5,
+                          Container(
+                            width: SizeConfig.horizontal(20),
+                            height: SizeConfig.horizontal(20),
+                            child: Image.network(
+                                frameController.historyList[index].imageScan),
                           ),
-                          SpaceSizer(vertical: 3,)
-                      ],
+                          SpaceSizer(
+                            horizontal: 3,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              LeaguespartanTextView(
+                                value: frameController
+                                    .historyList[index].creationTime,
+                                color: AppColors.textblackcolour,
+                                size: SizeConfig.safeBlockHorizontal * 2.5,
+                              ),
+                              SpaceSizer(
+                                vertical: 1,
+                              ),
+                              LeaguespartanTextView(
+                                value: frameController
+                                    .historyList[index].virusDetected,
+                                color: AppColors.textblackcolour,
+                                size: SizeConfig.safeBlockHorizontal * 2.5,
+                              ),
+                              SpaceSizer(
+                                vertical: 3,
+                              )
+                            ],
+                          ),
+                          SpaceSizer(
+                            horizontal: 3,
+                          ),
+                          CustomFlatButton(
+                            width: SizeConfig.horizontal(5),
+                            height: SizeConfig.horizontal(0.8),
+                            text: "Risk",
+                            textSize: 3,
+                            onTap: () {},
+                          )
+                        ],
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.buttoncolorblue,
+                      ),
+                      width: SizeConfig.horizontal(80),
+                      height: SizeConfig.horizontal(40),
                     ),
-                    SpaceSizer(horizontal: 3,),
-                    CustomFlatButton(
-                    width: SizeConfig.horizontal(5),
-                    height: SizeConfig.horizontal(0.8),
-                    text: "Low Risk",
-                    textSize: 3, 
-                    onTap: () {
-                      
-                    },)
-                  ],
+                  ),
                 ),
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.buttoncolorblue,
+                SpaceSizer(
+                  vertical:8,
                 ),
-                width: SizeConfig.horizontal(80),
-                height: SizeConfig.horizontal(40),
-              ),
-              SpaceSizer(vertical: 2,),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -6,7 +6,8 @@ class CustomTextbutton extends StatelessWidget {
   const CustomTextbutton(
       {super.key, required this.onPressed, required this.text});
 
-  final Function() onPressed;
+  final VoidCallback
+   onPressed;
   final String text;
 
   @override
@@ -18,7 +19,7 @@ class CustomTextbutton extends StatelessWidget {
           color: AppColors.textblackcolour,
           fontWeight: FontWeight.bold,
         ),
-        onPressed: () => onPressed,
+        onPressed: () => onPressed(),
       ),
     );
   }

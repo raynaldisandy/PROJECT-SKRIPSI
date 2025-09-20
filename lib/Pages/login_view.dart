@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:skinalertsv2/Controlers/login_controllers.dart';
 import 'package:skinalertsv2/Frame/frame_scaffold.dart';
+import 'package:skinalertsv2/Pages/register_view.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
@@ -17,6 +22,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
             systemNavigationBarColor: AppColors.textwhitecolour,
@@ -50,12 +56,13 @@ class LoginView extends StatelessWidget {
                   SpaceSizer(
                     vertical: 2,
                   ),
-                  CustomTextField(title: ""),
+                  CustomTextField(title: "Email",controller: loginController.emailController,),
                   SpaceSizer(
                     vertical: 2,
                   ),
                   CustomTextField(
-                    title: "",
+                    title: "Password",
+                    passwordController: loginController.passwordController,
                     isPasswordField: true,
                   ),
                   Row(
@@ -69,7 +76,9 @@ class LoginView extends StatelessWidget {
                   ),
                   CustomFlatButton(
                     text: "Log in",
-                    onTap: () {},
+                    onTap: () async {
+                      await loginController.signInWithEmailAndPassword();
+                    },
                   ),
                   SpaceSizer(
                     vertical: 2,
@@ -88,7 +97,7 @@ class LoginView extends StatelessWidget {
                   ),
                   CustomFlatButton(
                     text: "Continue With Google",
-                    onTap: () {},
+                    onTap: () => loginController.signInWithGoogle(),
                     backgroundColor: AppColors.buttoncolorblue,
                     image: AssetList.googleLogo,
                   ),
@@ -101,7 +110,7 @@ class LoginView extends StatelessWidget {
                         color: AppColors.textblackcolour,
                       ),
                       CustomTextbutton(
-                        onPressed: () {},
+                        onPressed: () => Get.to(RegisterView()),
                         text: "Now        ",
                       ),
                     ],
