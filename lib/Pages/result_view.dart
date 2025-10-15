@@ -135,7 +135,7 @@ class ResultView extends StatelessWidget {
                 width: SizeConfig.horizontal(13),
                 colorIconImage: AppColors.textwhitecolour,
                 onTap: () async {
-                  await frameController.getHistory(frameController.username.value);
+                  await frameController.getHistory(frameController.userName.value);
 Get.off(FrameView());
                 } 
               ),
