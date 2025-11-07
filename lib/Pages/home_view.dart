@@ -12,248 +12,59 @@ import 'package:skinalertsv2/Widget/custom_ripplebutton.dart';
 import 'package:skinalertsv2/Widget/user_info.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({
-    super.key});
-
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
-
-  
   @override
   Widget build(BuildContext context) {
-  final TabController tabController = TabController(length: 3, vsync: this);
+    final TabController tabController = TabController(length: 3, vsync: this);
 
-    final htmldata1 = """ 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gejala dan Jenis Kanker Kulit</title>
-</head>
-<body>
-    <header>
-        <h1>Gejala dan Jenis Kanker Kulit</h1>
-        <h2>Panduan Lengkap Kondisi Kulit</h2>
-    </header>
+    final htmldata1 = """ <div style="text-align: justify;">
+    <h2>GEJALA KANKER KULIT & JENIS – JENIS NYA</h2>
+    <p>
+        Kanker kulit merupakan pertumbuhan abnormal pada sel-sel kulit akibat kerusakan DNA yang umumnya disebabkan oleh paparan sinar ultraviolet (UV) secara berlebihan. Gejalanya dapat berupa perubahan pada tekstur kulit, munculnya benjolan atau bercak berwarna yang tidak biasa, serta luka yang tidak kunjung sembuh. Kondisi ini umumnya terjadi di bagian tubuh yang sering terpapar sinar matahari seperti wajah, leher, lengan, dan tungkai. Deteksi dini menjadi faktor penting dalam penanganan karena sebagian besar kanker kulit dapat disembuhkan jika ditemukan pada tahap awal.
+    </p>
     
-    <main>
-        <article>
-            <h3>1. Symptoms of Skin Cancer</h3>
-            <h4>Gejala Kanker Kulit</h4>
-            <p>Kanker kulit adalah pertumbuhan sel kulit abnormal yang terjadi akibat kerusakan DNA, biasanya disebabkan oleh paparan sinar ultraviolet (UV) berlebihan. Penyakit ini menjadi salah satu kanker yang paling sering terjadi karena kulit adalah organ terluar tubuh yang paling sering terpapar lingkungan luar.</p>
-            
-            <h5>Faktor Risiko Utama:</h5>
-            <ul>
-                <li>Paparan sinar matahari tanpa perlindungan</li>
-                <li>Kulit terang</li>
-                <li>Riwayat keluarga dengan kanker kulit</li>
-            </ul>
-            
-            <h5>Tanda dan Gejala:</h5>
-            <ul>
-                <li>Adanya bercak atau benjolan baru</li>
-                <li>Luka yang sulit sembuh</li>
-                <li>Perubahan bentuk, ukuran, atau warna pada tahi lalat</li>
-            </ul>
-            
-            <h5>Jenis Kanker Kulit:</h5>
-            <ul>
-                <li>Karsinoma sel basal</li>
-                <li>Karsinoma sel skuamosa</li>
-                <li>Melanoma (tipe paling berbahaya karena dapat menyebar cepat ke organ tubuh lain)</li>
-            </ul>
-            
-            <h5>Deteksi Dini:</h5>
-            <p>Deteksi dini sangat penting untuk meningkatkan peluang kesembuhan. Metode sederhana seperti aturan ABCDE dapat digunakan untuk mengenali perubahan pada tahi lalat:</p>
-            <ul>
-                <li><strong>A</strong>symmetry (Asimetri)</li>
-                <li><strong>B</strong>order (Batas tidak rata)</li>
-                <li><strong>C</strong>olor (Warna tidak merata)</li>
-                <li><strong>D</strong>iameter (Diameter lebih dari 6mm)</li>
-                <li><strong>E</strong>volution (Perkembangan atau perubahan)</li>
-            </ul>
-            
-            <h5>Pencegahan:</h5>
-            <ul>
-                <li>Penggunaan tabir surya</li>
-                <li>Pakaian pelindung</li>
-                <li>Pemeriksaan kulit secara rutin, terutama bagi individu dengan risiko tinggi</li>
-            </ul>
-        </article>
-        
-        <article>
-            <h3>2. Actinic Keratoses (AKIEC)</h3>
-            <p>Actinic Keratoses adalah lesi prakanker kulit yang muncul akibat paparan sinar matahari jangka panjang. Lesi ini biasanya tampak sebagai bercak kecil berwarna merah, kecokelatan, atau keabu-abuan dengan permukaan kasar dan bersisik. Lokasinya sering muncul pada wajah, telinga, tangan, atau kulit kepala yang terpapar sinar UV.</p>
-            
-            <h5>Karakteristik:</h5>
-            <ul>
-                <li>Berpotensi berkembang menjadi kanker kulit ganas, khususnya karsinoma sel skuamosa</li>
-                <li>Gejala yang dapat dirasakan antara lain gatal, perih, atau sensasi terbakar pada area lesi</li>
-                <li>Kondisi ini harus dikenali sejak dini agar tidak berkembang lebih parah</li>
-            </ul>
-            
-            <h5>Penanganan:</h5>
-            <ul>
-                <li>Cryotherapy</li>
-                <li>Obat oles seperti imiquimod atau 5-fluorouracil</li>
-                <li>Terapi fotodinamik</li>
-            </ul>
-            
-            <h5>Pencegahan:</h5>
-            <p>Melindungi kulit dari paparan sinar UV berlebih dan melakukan pemeriksaan kulit secara berkala.</p>
-        </article>
-        
-        <article>
-            <h3>3. Basal Cell Carcinoma (BCC)</h3>
-            <p>Basal Cell Carcinoma (BCC) adalah jenis kanker kulit paling umum yang berasal dari sel basal pada lapisan terdalam epidermis. Pertumbuhannya cenderung lambat, tetapi jika tidak ditangani dapat merusak jaringan di sekitarnya.</p>
-            
-            <h5>Faktor Risiko:</h5>
-            <ul>
-                <li>Paparan sinar UV berlebihan</li>
-                <li>Kulit terang</li>
-                <li>Riwayat kanker kulit sebelumnya</li>
-            </ul>
-            
-            <h5>Ciri-ciri Klinis:</h5>
-            <ul>
-                <li>Benjolan kecil berwarna pucat, merah muda, atau keperakan dengan permukaan mengilap</li>
-                <li>Lesi kadang berdarah, membentuk kerak, atau tidak kunjung sembuh</li>
-                <li>Walaupun jarang menyebar ke organ lain, BCC tetap berbahaya karena bisa menyebabkan kerusakan jaringan permanen</li>
-            </ul>
-            
-            <h5>Pengobatan:</h5>
-            <ul>
-                <li>Operasi pengangkatan</li>
-                <li>Cryotherapy</li>
-                <li>Terapi laser</li>
-            </ul>
-            
-            <h5>Pencegahan:</h5>
-            <p>Mengurangi paparan sinar matahari langsung, menggunakan tabir surya, serta pemeriksaan kulit secara rutin bagi individu dengan risiko tinggi.</p>
-        </article>
-        
-        <article>
-            <h3>4. Benign Keratosis like Lesions (BKL)</h3>
-            <p>Benign Keratosis like Lesions (BKL) adalah lesi jinak pada kulit yang biasanya tidak berbahaya. Lesi ini sering muncul seiring bertambahnya usia dan tidak memiliki potensi menjadi kanker. Meski demikian, bentuknya kadang menyerupai kanker kulit sehingga menimbulkan kekhawatiran.</p>
-            
-            <h5>Ciri-ciri:</h5>
-            <ul>
-                <li>Bercak menonjol berwarna coklat, kehitaman, atau abu-abu</li>
-                <li>Permukaan kasar menyerupai kutil</li>
-                <li>Biasanya tidak menimbulkan rasa sakit, namun bisa terasa gatal atau teriritasi jika tergesek pakaian</li>
-            </ul>
-            
-            <h5>Penanganan:</h5>
-            <p>Pengobatan umumnya tidak diperlukan kecuali untuk alasan kosmetik atau jika menyebabkan ketidaknyamanan. Jika diperlukan, dokter dapat melakukan:</p>
-            <ul>
-                <li>Cryotherapy</li>
-                <li>Bedah kecil untuk menghilangkannya</li>
-            </ul>
-        </article>
-        
-        <article>
-            <h3>5. Dermatofibroma (DF)</h3>
-            <p>Dermatofibroma adalah tumor jinak pada kulit yang sering muncul pada tungkai atau lengan. Lesi ini terbentuk dari proliferasi jaringan fibrosa dan biasanya tidak berbahaya. Kondisi ini lebih sering dialami oleh wanita dewasa dibandingkan pria.</p>
-            
-            <h5>Ciri Khas:</h5>
-            <ul>
-                <li>Benjolan kecil, padat, berwarna coklat atau kemerahan</li>
-                <li>Terasa keras saat disentuh</li>
-                <li>Jika ditekan, bagian tengahnya sering kali tampak menjorok ke dalam</li>
-                <li>Umumnya tidak menimbulkan rasa nyeri, tetapi bisa terasa gatal pada beberapa orang</li>
-            </ul>
-            
-            <h5>Penanganan:</h5>
-            <p>Karena sifatnya jinak, dermatofibroma biasanya tidak memerlukan pengobatan. Namun, jika benjolan menimbulkan masalah estetika atau sering teriritasi, prosedur bedah kecil dapat dilakukan untuk mengangkatnya.</p>
-        </article>
-        
-        <article>
-            <h3>6. Melanoma (MEL)</h3>
-            <p>Melanoma adalah jenis kanker kulit paling berbahaya yang berasal dari sel penghasil pigmen (melanosit). Penyakit ini berpotensi menyebar dengan cepat ke organ tubuh lain sehingga memerlukan deteksi dan penanganan segera.</p>
-            
-            <h5>Faktor Risiko:</h5>
-            <ul>
-                <li>Paparan sinar UV</li>
-                <li>Kulit terang</li>
-                <li>Riwayat keluarga dengan melanoma</li>
-            </ul>
-            
-            <h5>Gejala:</h5>
-            <ul>
-                <li>Tahi lalat yang berubah warna, bentuk, atau ukuran</li>
-                <li>Lesi sering kali memiliki tepi tidak rata</li>
-                <li>Warna yang bervariasi</li>
-                <li>Diameter lebih dari 6 mm</li>
-                <li>Terus berkembang dari waktu ke waktu</li>
-                <li>Tahi lalat yang terasa gatal, nyeri, atau berdarah juga perlu diwaspadai</li>
-            </ul>
-            
-            <h5>Penanganan:</h5>
-            <ul>
-                <li>Operasi pengangkatan lesi</li>
-                <li>Terapi imun</li>
-                <li>Kemoterapi</li>
-            </ul>
-            
-            <h5>Pencegahan:</h5>
-            <p>Pemeriksaan rutin kulit sangat disarankan, terutama bagi individu yang memiliki banyak tahi lalat atau faktor risiko tinggi.</p>
-        </article>
-        
-        <article>
-            <h3>7. Melanocytic Nevi (NV)</h3>
-            <p>Melanocytic Nevi atau yang lebih dikenal sebagai tahi lalat adalah pertumbuhan jinak dari sel melanosit. Hampir semua orang memiliki nevus, dan sebagian besar tidak berbahaya. Namun, beberapa jenis nevi dapat berkembang menjadi melanoma jika mengalami perubahan abnormal.</p>
-            
-            <h5>Ciri-ciri:</h5>
-            <ul>
-                <li>Bercak kecil berwarna coklat, hitam, atau kebiruan</li>
-                <li>Bentuk bulat atau oval</li>
-                <li>Nevi normal umumnya stabil dari waktu ke waktu dan tidak menimbulkan keluhan</li>
-                <li>Tahi lalat yang berubah warna, bentuk, atau ukuran harus segera diperiksa</li>
-            </ul>
-            
-            <h5>Pemeriksaan:</h5>
-            <p>Pemeriksaan rutin sangat penting untuk membedakan antara nevus normal dan yang berpotensi menjadi kanker. Dokter dapat melakukan:</p>
-            <ul>
-                <li>Dermoskopi</li>
-                <li>Biopsi jika ditemukan kecurigaan terhadap melanoma</li>
-            </ul>
-        </article>
-        
-        <article>
-            <h3>8. Vascular Lesions (VASC)</h3>
-            <p>Vascular Lesions adalah kelainan pada pembuluh darah kulit yang bisa berupa tumor jinak atau malformasi pembuluh darah. Lesi ini dapat muncul sejak lahir (contohnya hemangioma) atau berkembang seiring pertumbuhan. Sebagian besar bersifat jinak dan tidak berbahaya.</p>
-            
-            <h5>Ciri-ciri:</h5>
-            <ul>
-                <li>Bercak merah, ungu, atau kebiruan pada kulit</li>
-                <li>Kadang disertai pembengkakan</li>
-                <li>Dapat muncul di berbagai bagian tubuh dengan ukuran bervariasi</li>
-            </ul>
-            
-            <h5>Penanganan:</h5>
-            <p>Sebagian besar kasus tidak memerlukan pengobatan, namun bila mengganggu fungsi organ atau menimbulkan masalah estetika, pengobatan dapat dilakukan dengan:</p>
-            <ul>
-                <li>Terapi laser</li>
-                <li>Bedah</li>
-                <li>Obat-obatan tertentu</li>
-            </ul>
-            
-            <h5>Pemeriksaan:</h5>
-            <p>Pemeriksaan medis diperlukan untuk menentukan tingkat keparahan dan jenis terapi yang sesuai.</p>
-        </article>
-    </main>
+    <p>
+        Berdasarkan klasifikasi medis dan dataset dermatologi seperti HAM10000, terdapat tujuh jenis utama kanker kulit, yaitu:
+    </p>
     
-    <footer>
-        <p><strong>Informasi Penting:</strong> Konten ini disediakan untuk tujuan edukasi dan informasi umum saja. Konsultasikan dengan dokter atau profesional kesehatan untuk diagnosis dan perawatan yang tepat.</p>
-    </footer>
-</body>
-</html>
-    """; 
+    <ol>
+        <li><strong>Actinic Keratoses (AKIEC)</strong> – Lesi prakanker akibat paparan sinar matahari jangka panjang yang dapat berkembang menjadi karsinoma sel skuamosa.</li>
+        <li><strong>Basal Cell Carcinoma (BCC)</strong> – Jenis kanker kulit paling umum, biasanya tampak sebagai benjolan kecil mengilap atau luka yang tidak sembuh-sembuh.</li>
+        <li><strong>Benign Keratosis-like Lesions (BKL)</strong> – Lesi jinak yang menyerupai kanker kulit, biasanya berupa bercak cokelat atau abu-abu yang kasar.</li>
+        <li><strong>Dermatofibroma (DF)</strong> – Benjolan kecil jinak berwarna cokelat kemerahan yang sering muncul akibat reaksi terhadap luka kecil pada kulit.</li>
+        <li><strong>Melanocytic Nevi (NV)</strong> – Tahi lalat atau bintik cokelat yang umumnya jinak, namun perlu diawasi bila mengalami perubahan</li>
+        <li><strong>Vascular Lesions (VASC)</strong> – Kelainan pembuluh darah yang tampak sebagai bercak merah atau ungu di kulit.</li>
+        <li><strong>Melanoma (MEL)</strong> – Jenis kanker kulit paling berbahaya yang berkembang dari sel penghasil pigmen (melanosit) dan dapat menyebar ke organ lain dengan cepat.</li>
+    </ol>
+    
+    <p>
+        Gejala dari ketujuh jenis kanker kulit tersebut bervariasi, namun umumnya melibatkan perubahan warna kulit, bentuk tahi lalat yang tidak simetris, tepi yang tidak rata, ukuran yang membesar, hingga luka yang tidak sembuh dalam waktu lama. Penting untuk melakukan pemeriksaan kulit secara rutin, baik mandiri maupun oleh tenaga medis, terutama bagi individu dengan riwayat paparan sinar matahari berlebih atau faktor genetik. Dengan deteksi dini dan pengobatan yang tepat, peluang penyembuhan kanker kulit dapat meningkat secara signifikan.
+    </p>
+    
+    <h2>DIAGNOSIS AND TREATMENT</h2>
+    <p>
+        Diagnosis kanker kulit merupakan tahapan penting untuk memastikan jenis, stadium, serta strategi pengobatan yang tepat. Pemeriksaan dimulai dengan observasi klinis oleh dokter kulit, di mana area tubuh yang mencurigakan diperiksa secara visual untuk menilai bentuk, ukuran, warna, dan tekstur lesi. Dokter biasanya menggunakan dermatoskop, yaitu alat pembesar khusus yang memungkinkan visualisasi struktur mikroskopis kulit. Pada tahap ini, perubahan pada tahi lalat atau bercak kulit seperti asimetri, tepi tidak rata, warna tidak seragam, atau pertumbuhan cepat menjadi indikator penting adanya keganasan. Bila ditemukan indikasi mencurigakan, langkah berikutnya adalah biopsi kulit, di mana sebagian kecil jaringan diambil dan dianalisis di laboratorium histopatologi untuk menentukan apakah sel-sel tersebut termasuk ganas atau tidak.
+    </p>
+    
+    <p>
+        Dalam penelitian dermatologi modern, terutama berdasarkan dataset HAM10000, diagnosis kanker kulit kini semakin presisi dengan bantuan teknologi Artificial Intelligence (AI). Model berbasis Convolutional Neural Network (CNN) digunakan untuk mengenali pola-pola visual yang khas pada tujuh jenis utama kanker kulit, yaitu Actinic Keratoses (AKIEC), Basal Cell Carcinoma (BCC), Benign Keratosis-like Lesions (BKL), Dermatofibroma (DF), Melanocytic Nevi (NV), Vascular Lesions (VASC), dan Melanoma (MEL). Teknologi ini membantu dokter mempercepat diagnosis serta meningkatkan akurasi dalam membedakan antara lesi jinak dan ganas. Selain itu, pencitraan digital seperti Total Body Photography (TBP) dan Sequential Digital Dermoscopy Imaging (SDDI) juga digunakan untuk memantau perubahan lesi dari waktu ke waktu secara non-invasif.
+    </p>
+    
+    <p>
+        Setelah diagnosis ditegakkan, pengobatan kanker kulit dilakukan berdasarkan jenis dan tingkat keparahannya. Pada Basal Cell Carcinoma (BCC) dan Actinic Keratoses (AKIEC), tindakan umum meliputi eksisi bedah sederhana, krioterapi (pembekuan jaringan kanker dengan nitrogen cair), atau terapi fotodinamik (PDT) yang menggunakan kombinasi cahaya dan obat fotosensitizer untuk menghancurkan sel kanker. Untuk Melanoma (MEL) yang bersifat agresif, pengobatan biasanya memerlukan pembedahan lanjutan (wide local excision), disertai terapi imun (immunotherapy) seperti pembrolizumab atau nivolumab, dan targeted therapy untuk menghambat pertumbuhan sel kanker pada tingkat genetik. Sementara itu, lesi jinak seperti Dermatofibroma (DF) atau Benign Keratosis-like Lesions (BKL) umumnya hanya diobservasi, kecuali menimbulkan gangguan fungsional atau estetika.
+    </p>
+    
+    <p>
+        Selain terapi medis, aspek perawatan pencegahan (preventive care) juga menjadi bagian penting dalam manajemen kanker kulit. Pasien disarankan untuk rutin menggunakan tabir surya dengan SPF minimal 30, menghindari paparan sinar matahari langsung antara pukul 10.00–16.00, mengenakan pakaian pelindung seperti topi dan kacamata UV, serta memeriksa kondisi kulit secara mandiri setiap bulan. Individu dengan riwayat keluarga penderita kanker kulit atau dengan kulit terang perlu melakukan pemeriksaan dermatologi profesional secara berkala, minimal dua kali setahun. Pendekatan terpadu yang melibatkan diagnosis akurat, pengobatan berbasis bukti, dan kesadaran diri dalam pencegahan terbukti efektif menurunkan tingkat kekambuhan serta meningkatkan prognosis jangka panjang bagi pasien kanker kulit.
+    </p>
+</div>
+    """;
 
     final List<String> imgList = [
       AssetList.exampleSkinCarousale,
@@ -280,7 +91,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     LeaguespartanTextView(
-                      value: "Good Morning and Keep Healthy",
+                      value:
+                          "${frameController.getGreeting()} and Keep Healthy",
                       color: AppColors.textblackcolour,
                     ),
                     SpaceSizer(
@@ -294,76 +106,106 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                   
                   ])
             ]),
-             SizedBox(
-                      width: SizeConfig.horizontal(100),
-                      height: SizeConfig.horizontal(60),
-                      child: CarouselSlider.builder(
-                          carouselController: frameController.carouselController,
-                          options: CarouselOptions(
-                              autoPlayAnimationDuration:
-                                  const Duration(milliseconds: 1500),
-                              autoPlay: true,
-                              aspectRatio: 9 / 4,
-                              enlargeCenterPage: true,
-                              onPageChanged:
-                                  (int index, CarouselPageChangedReason reason) {
-                                frameController.currentDot(index);
-                              }),
-                          itemCount: imgList.length,
-                          itemBuilder: (BuildContext context, int index,
-                                  int realIndex) =>
-                              Center(
-                                  child: CustomRippleButton(
-                                      radius: 0,
-                                      onTap: () {},
-                                      child: ClipRRect(
-                                        
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(
-                                                  SizeConfig.horizontal(1))),
-                                          child: imgList.isEmpty
-                                              ? const CircularProgressIndicator()
-                                              : Container(
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(color: AppColors.buttoncolorgreendark,width: SizeConfig.horizontal(1))
-                                                ),
-                                                child: Image.asset(imgList[index],
-                                                    fit: BoxFit.fill,
-                                                    width:
-                                                        SizeConfig.horizontal(100),
-                                                    height: SizeConfig.horizontal(
-                                                        100)),
-                                              ))))),
-                    ),
-                    TabBar(
-                      controller: tabController,
-                      indicator: BoxDecoration(color: AppColors.buttoncolorgreendark,borderRadius: BorderRadius.all(Radius.circular(SizeConfig.horizontal(99)))),
-                      indicatorColor: AppColors.buttoncolorgreendark,
-                      unselectedLabelColor: AppColors.buttoncolorgreendark,
-                      labelColor: Colors.white,
-                      labelStyle: leagueSpartanStyle().labelStyle(AppColors.buttoncolorgreendark),
-            tabs: <Widget>[
-              Tab(text: 'Symptoms',),
-              Tab(text: 'Diagnosis And\n Treatment',),
-              Tab(text: 'Click For Check',),
-            ],
-          ),
-          SizedBox(
-            height: SizeConfig.horizontal(100),
-            child: TabBarView(
+            SizedBox(
+              width: SizeConfig.horizontal(100),
+              height: SizeConfig.horizontal(60),
+              child: CarouselSlider.builder(
+                  carouselController: frameController.carouselController,
+                  options: CarouselOptions(
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 1500),
+                      autoPlay: true,
+                      aspectRatio: 9 / 4,
+                      enlargeCenterPage: true,
+                      onPageChanged:
+                          (int index, CarouselPageChangedReason reason) {
+                        frameController.currentDot(index);
+                      }),
+                  itemCount: imgList.length,
+                  itemBuilder: (BuildContext context, int index,
+                          int realIndex) =>
+                      Center(
+                          child: CustomRippleButton(
+                              radius: 0,
+                              onTap: () {},
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(
+                                          SizeConfig.horizontal(2))),
+                                  child: imgList.isEmpty
+                                      ? const CircularProgressIndicator()
+                                      : Container(
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: AppColors
+                                                      .buttoncolorgreendark,
+                                                  width: SizeConfig.horizontal(
+                                                      1))),
+                                          child: Image.asset(imgList[index],
+                                              fit: BoxFit.fill,
+                                              width: SizeConfig.horizontal(100),
+                                              height:
+                                                  SizeConfig.horizontal(100)),
+                                        ))))),
+            ),
+            TabBar(
               controller: tabController,
-              children: 
-            [
-                 
-            Center(child: Html(data: htmldata1)),
-            Center(child: Text("It's cloudy here2")),
-            Center(child: Text("It's cloudy here3")),
-            ]),
-          ),
-          SpaceSizer(vertical: 12,)
+              indicator: BoxDecoration(
+                  color: AppColors.buttoncolorgreendark,
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.horizontal(99)))),
+              indicatorColor: AppColors.buttoncolorgreendark,
+              unselectedLabelColor: AppColors.buttoncolorgreendark,
+              labelColor: Colors.white,
+              labelStyle: leagueSpartanStyle()
+                  .labelStyle(AppColors.buttoncolorgreendark),
+              tabs: <Widget>[
+                Tab(
+                  text: 'Symptoms',
+                ),
+                Tab(
+                  text: 'Diagnosis And\n Treatment',
+                ),
+                Tab(
+                  text: 'Click For Check',
+                ),
+              ],
+            ),
+            const Divider(
+                height: 20,
+                thickness: 0.8,
+                indent: 0,
+                endIndent: 0,
+                color: Colors.black),
+            SpaceSizer(
+              vertical: 2,
+            ),
+            SizedBox(
+              height: SizeConfig.horizontal(100),
+              child: TabBarView(controller: tabController, children: [
+                Center(
+                    child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.horizontal(2)),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(SizeConfig.horizontal(2))),
+                          border: Border.all(
+                              color: Colors.black,
+                              width: SizeConfig.horizontal(0.5))),
+                      child:
+                          SingleChildScrollView(child: Html(data: htmldata1))),
+                )),
+                Center(child: Text("It's cloudy here2")),
+                Center(child: Text("It's cloudy here3")),
+              ]),
+            ),
+            SpaceSizer(
+              vertical: 8,
+            )
           ],
         ),
       ),

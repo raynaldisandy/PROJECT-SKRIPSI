@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-
 class AuthorizeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   final PageController pageController = PageController();
@@ -29,15 +28,9 @@ class AuthorizeController extends GetxController
     _getValidateUser();
   }
 
-
-
   dynamic _getValidateUser() async {
-
-    Future<void>.delayed(const Duration(milliseconds: 200), () async {
-  
-        Get.offAllNamed('/login');
-      
+    Future<void>.delayed(const Duration(milliseconds: 2000), () async {
+      Get.offAllNamed('/login');
     });
   }
-
 }

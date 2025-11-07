@@ -31,7 +31,8 @@ class FrameController extends GetxController {
   final FirebaseStorage firebaseStorage = FirebaseStorage.instance;
   TextEditingController usernameChange = TextEditingController();
   TextEditingController noHPChange = TextEditingController();
-final CarouselSliderController carouselController = CarouselSliderController();
+  final CarouselSliderController carouselController =
+      CarouselSliderController();
   TextEditingController emailChange = TextEditingController();
   final RxInt currentDot = RxInt(0);
   File? image;
@@ -61,6 +62,21 @@ final CarouselSliderController carouselController = CarouselSliderController();
     await GoogleSignIn().signOut();
     await FirebaseAuth.instance.signOut();
     Get.offAll(const LoginView());
+  }
+
+  String getGreeting() {
+    final now = DateTime.now();
+    final hour = now.hour;
+
+    if (hour >= 5 && hour < 12) {
+      return 'Good Morning';
+    } else if (hour >= 12 && hour < 17) {
+      return 'Good Afternoon';
+    } else if (hour >= 17 && hour < 21) {
+      return 'Good Evening';
+    } else {
+      return 'Good Night';
+    }
   }
 
   dynamic getDataUser() async {
