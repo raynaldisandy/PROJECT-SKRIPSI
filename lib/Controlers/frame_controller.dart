@@ -174,10 +174,8 @@ class FrameController extends GetxController {
           .collection('users')
           .doc(user!.uid)
           .update(<Object, Object?>{'user_image': url});
-    } on PlatformException catch (e) {
-      if (e.code != null) {
-        Snack.show(SnackbarType.error, 'Information', 'Failed to pick image');
-      }
+    } on PlatformException {
+      Snack.show(SnackbarType.error, 'Information', 'Failed to pick image');
     }
     update();
   }
@@ -216,19 +214,13 @@ class FrameController extends GetxController {
     }
   }
 
-  // Stream<QuerySnapshot<Map<String, dynamic>>> totalUnreadChat() {
-  //   return _firestore
-  //       .collection('users')
-  //       .doc(user!.uid)
-  //       .collection('chats')
-  //       .snapshots();
-  // }
+
 
   List<Widget> widgetViewList = <Widget>[
-    HomeView(),
-    ScanView(),
-    HistoryView(),
-    ProfileView()
+    const HomeView(),
+    const ScanView(),
+    const HistoryView(),
+    const ProfileView()
   ];
 
   void onTapNav(int index) {

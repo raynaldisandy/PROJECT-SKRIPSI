@@ -126,7 +126,7 @@ class CustomTextField extends StatelessWidget {
                                   labelText: hintText,
                                   floatingLabelBehavior:
                                       FloatingLabelBehavior.never,
-                                  labelStyle: leagueSpartanStyle()
+                                  labelStyle: LeagueSpartanStyle()
                                       .labelStyle(hintTextColor))),
                         )
                       : TextFormField(
@@ -155,11 +155,11 @@ class CustomTextField extends StatelessWidget {
                                           borderRadius ?? 4)))),
                               labelText: labelText,
                               hintText: hintText,
-                              hintStyle: leagueSpartanStyle()
+                              hintStyle: LeagueSpartanStyle()
                                   .labelStyle(hintTextColor),
                               floatingLabelBehavior:
                                   FloatingLabelBehavior.never,
-                              labelStyle: leagueSpartanStyle()
+                              labelStyle: LeagueSpartanStyle()
                                   .labelStyle(hintTextColor)))))
         ]);
   }

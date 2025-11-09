@@ -74,6 +74,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     const htmldata2 = '''
     <div style="text-align: justify;">
     <p>
+    <h2>Diagnosis And Treatment</h2>
+    </p>
+    <p>
         Diagnosis kanker kulit merupakan tahapan penting untuk memastikan jenis, stadium, serta strategi pengobatan yang tepat. Pemeriksaan dimulai dengan <em>observasi klinis</em> oleh dokter kulit, di mana area tubuh yang mencurigakan diperiksa secara visual untuk menilai bentuk, ukuran, warna, dan tekstur lesi. Dokter biasanya menggunakan <em>dermatoskop</em>, yaitu alat pembesar khusus yang memungkinkan visualisasi struktur mikroskopis kulit. Pada tahap ini, perubahan pada tahi lalat atau bercak kulit seperti asimetri, tepi tidak rata, warna tidak seragam, atau pertumbuhan cepat menjadi indikator penting adanya keganasan. Bila ditemukan indikasi mencurigakan, langkah berikutnya adalah <strong>biopsi kulit</strong>, di mana sebagian kecil jaringan diambil dan dianalisis di laboratorium histopatologi untuk menentukan apakah sel-sel tersebut termasuk ganas atau tidak.
     </p>
     
@@ -103,12 +106,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 5,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              UserPicture(),
-              SpaceSizer(
+              const UserPicture(),
+              const SpaceSizer(
                 horizontal: 6,
               ),
               Column(
@@ -120,7 +123,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           "${frameController.getGreeting()} and Keep Healthy",
                       color: AppColors.textblackcolour,
                     ),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),
                     Obx(
@@ -184,9 +187,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               indicatorColor: AppColors.buttoncolorgreendark,
               unselectedLabelColor: AppColors.buttoncolorgreendark,
               labelColor: Colors.white,
-              labelStyle: leagueSpartanStyle()
+              labelStyle: LeagueSpartanStyle()
                   .labelStyle(AppColors.buttoncolorgreendark),
-              tabs: <Widget>[
+              tabs: const <Widget>[
                 Tab(
                   text: 'Symptoms',
                 ),
@@ -204,7 +207,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 indent: 0,
                 endIndent: 0,
                 color: Colors.black),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 2,
             ),
             SizedBox(
@@ -239,97 +242,113 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           SingleChildScrollView(child: Html(data: htmldata2))),
                 )),
                 Center(
-                    child: Column(
-                  children: [
-                    LeaguespartanTextView(
-                      value: 'Deteksi Dini Kanker Kulit',
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                      size: SizeConfig.safeBlockHorizontal * 6,
-                    ),
-                    SpaceSizer(
-                      vertical: 3,
-                    ),
-                    LeaguespartanTextView(
-                      alignText: AlignTextType.center,
-                      value:
-                          'Unggah foto area kulit yang ingin diperiksa. Sistem akan menganalisis gambar menggunakan model AI berbasis CNN untuk mengenali kemungkinan jenis lesi kulit.',
-                      color: Colors.black,
-                      size: SizeConfig.safeBlockHorizontal * 6,
-                    ),
-                    SpaceSizer(
-                      vertical: 3,
-                    ),
-                    Container(
-                      child: Center(
-                        child: CustomFlatButton(
-                          icon: Icons.camera_alt,
-                          colorIconImage: AppColors.whitecard,
-                          text: 'MULAI SCAN KULITMU DISINI ',
-                          // onTap: () => scanController.pickImage(ImageSource.gallery),
-                          onTap: () => showDialog(
-                            context: context,
-                            builder: (ctx) => AlertDialog(
-                              title: const LeaguespartanTextView(
-                                value: "Pilih Directory",
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              content: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CustomFlatButton(
-                                    text: '',
-                                    width: SizeConfig.horizontal(5),
-                                    height: SizeConfig.horizontal(2.5),
-                                    onTap: () => scanController.pickImage(
-                                      ImageSource.gallery,
-                                      frameController.userName.value,
+                    child: Center(
+                        child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.horizontal(2)),
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(SizeConfig.horizontal(2))),
+                          border: Border.all(
+                              color: Colors.black,
+                              width: SizeConfig.horizontal(0.5))),
+                      child: Column(
+                        children: [
+                          const SpaceSizer(
+                            vertical: 3,
+                          ),
+                          LeaguespartanTextView(
+                            value: 'Deteksi Dini Kanker Kulit',
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            size: SizeConfig.safeBlockHorizontal * 6,
+                          ),
+                          const SpaceSizer(
+                            vertical: 3,
+                          ),
+                          LeaguespartanTextView(
+                            alignText: AlignTextType.center,
+                            value:
+                                'Unggah foto area kulit yang ingin diperiksa. Sistem akan menganalisis gambar menggunakan model AI berbasis CNN untuk mengenali kemungkinan jenis lesi kulit.',
+                            color: Colors.black,
+                            size: SizeConfig.safeBlockHorizontal * 6,
+                          ),
+                          const SpaceSizer(
+                            vertical: 3,
+                          ),
+                          Center(
+                            child: CustomFlatButton(
+                              icon: Icons.camera_alt,
+                              colorIconImage: AppColors.whitecard,
+                              text: 'MULAI SCAN KULITMU DISINI ',
+                              // onTap: () => scanController.pickImage(ImageSource.gallery),
+                              onTap: () => showDialog(
+                                context: context,
+                                builder: (ctx) => AlertDialog(
+                                  title: const LeaguespartanTextView(
+                                    value: "Pilih Directory",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  content: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      CustomFlatButton(
+                                        text: '',
+                                        width: SizeConfig.horizontal(5),
+                                        height: SizeConfig.horizontal(2.5),
+                                        onTap: () => scanController.pickImage(
+                                          ImageSource.gallery,
+                                          frameController.userName.value,
+                                        ),
+                                        icon: Icons.photo,
+                                        iconSize:
+                                            SizeConfig.safeBlockHorizontal *
+                                                12,
+                                        colorIconImage: AppColors.whitecard,
+                                      ),
+                                      const SpaceSizer(
+                                        horizontal: 7,
+                                      ),
+                                      CustomFlatButton(
+                                        text: '',
+                                        width: SizeConfig.horizontal(5),
+                                        height: SizeConfig.horizontal(2.5),
+                                        onTap: () => scanController.pickImage(
+                                          ImageSource.camera,
+                                          frameController.userName.value,
+                                        ),
+                                        icon: Icons.camera,
+                                        iconSize:
+                                            SizeConfig.safeBlockHorizontal *
+                                                12,
+                                        colorIconImage: AppColors.whitecard,
+                                      ),
+                                    ],
+                                  ),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: const LeaguespartanTextView(
+                                        value: "Cancel",
+                                        color: Colors.red,
+                                      ),
                                     ),
-                                    icon: Icons.photo,
-                                    iconSize:
-                                        SizeConfig.safeBlockHorizontal * 12,
-                                    colorIconImage: AppColors.whitecard,
-                                  ),
-                                  const SpaceSizer(
-                                    horizontal: 7,
-                                  ),
-                                  CustomFlatButton(
-                                    text: '',
-                                    width: SizeConfig.horizontal(5),
-                                    height: SizeConfig.horizontal(2.5),
-                                    onTap: () => scanController.pickImage(
-                                      ImageSource.camera,
-                                      frameController.userName.value,
-                                    ),
-                                    icon: Icons.camera,
-                                    iconSize:
-                                        SizeConfig.safeBlockHorizontal * 12,
-                                    colorIconImage: AppColors.whitecard,
-                                  ),
-                                ],
-                              ),
-                              actions: <Widget>[
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(ctx).pop();
-                                  },
-                                  child: const LeaguespartanTextView(
-                                    value: "Cancel",
-                                    color: Colors.red,
-                                  ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )),
+                        ],
+                      )),
+                )))
               ]),
             ),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 8,
             )
           ],

@@ -25,6 +25,7 @@ class AppColors {
   static Color creamcard = AppColors.hex(colorCode: '#F2F9F1');
   static Color greyDisabled = AppColors.hex(colorCode: '#B2C6D5');
   static Color rippleColor =
+      // ignore: deprecated_member_use
       AppColors.hex(colorCode: '#EFEFEF').withOpacity(0.20);
  
 }

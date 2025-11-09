@@ -34,7 +34,7 @@ class ProfileView extends StatelessWidget {
                 color: AppColors.textbluecolour,
                 fontWeight: FontWeight.bold,
               ),
-              SpaceSizer(
+              const SpaceSizer(
                 vertical: 2,
               ),
               Stack(
@@ -105,23 +105,23 @@ class ProfileView extends StatelessWidget {
                         },
                         child: frameController.isEdit.isTrue
                             ? Container(
-                                child: Icon(
-                                  Icons.mode_edit_outline_outlined,
-                                  color: AppColors.whitecard,
-                                ),
                                 width: SizeConfig.horizontal(15),
                                 height: SizeConfig.horizontal(15),
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: AppColors.buttoncolorblue),
+                                child: Icon(
+                                  Icons.mode_edit_outline_outlined,
+                                  color: AppColors.whitecard,
+                                ),
                               )
-                            : SizedBox(),
+                            : const SizedBox(),
                       ),
                     ),
                   ),
                 ],
               ),
-              SpaceSizer(
+              const SpaceSizer(
                 vertical: 2,
               ),
               frameController.isEdit.isTrue
@@ -129,7 +129,7 @@ class ProfileView extends StatelessWidget {
                   : TextBox(
                       value: frameController.userName.value,
                     ),
-              SpaceSizer(
+              const SpaceSizer(
                 vertical: 2,
               ),
               frameController.isEdit.isTrue
@@ -137,7 +137,7 @@ class ProfileView extends StatelessWidget {
                   : TextBox(
                       value: frameController.phoneNumber.value,
                     ),
-              SpaceSizer(
+              const SpaceSizer(
                 vertical: 2,
               ),
               frameController.isEdit.isTrue
@@ -159,7 +159,7 @@ class ProfileView extends StatelessWidget {
                       onTap: () => frameController.isEdit.value =
                           !frameController.isEdit.value,
                     ),
-              SpaceSizer(
+              const SpaceSizer(
                 vertical: 1,
               ),
               frameController.isEdit.isTrue

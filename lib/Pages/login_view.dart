@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -37,7 +35,7 @@ class LoginView extends StatelessWidget {
             view: Center(
               child: Column(
                 children: [
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 4,
                   ),
                   LobstertwoTextView(
@@ -53,11 +51,11 @@ class LoginView extends StatelessWidget {
                     color: AppColors.textbluecolour,
                     fontWeight: FontWeight.bold,
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomTextField(title: "Email",controller: loginController.emailController,),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomTextField(
@@ -67,7 +65,7 @@ class LoginView extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      SpaceSizer(
+                      const SpaceSizer(
                         horizontal: 10,
                       ),
                       CustomTextbutton(
@@ -80,10 +78,10 @@ class LoginView extends StatelessWidget {
                       await loginController.signInWithEmailAndPassword();
                     },
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
-                  Container(
+                  SizedBox(
                     width: SizeConfig.horizontal(80),
                     child: Divider(
                         height: SizeConfig.horizontal(0.5),
@@ -92,7 +90,7 @@ class LoginView extends StatelessWidget {
                         endIndent: 5,
                         color: Colors.black26),
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomFlatButton(
@@ -104,13 +102,13 @@ class LoginView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SpaceSizer(horizontal: 5,),
+                      const SpaceSizer(horizontal: 5,),
                       LeaguespartanTextView(
                         value: "Don't Have An Account? Create",
                         color: AppColors.textblackcolour,
                       ),
                       CustomTextbutton(
-                        onPressed: () => Get.to(RegisterView()),
+                        onPressed: () => Get.to(const RegisterView()),
                         text: "Now        ",
                       ),
                     ],

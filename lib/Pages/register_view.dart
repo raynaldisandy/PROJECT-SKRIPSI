@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -36,7 +34,7 @@ class RegisterView extends StatelessWidget {
             view:Center(
               child: Column(
                 children: [
-                SpaceSizer(
+                const SpaceSizer(
                       vertical: 3,
                     ),
                     LobstertwoTextView(
@@ -45,37 +43,37 @@ class RegisterView extends StatelessWidget {
                       color: AppColors.textbluecolour,
                       fontWeight: FontWeight.bold,
                     ),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),
                     CustomTextField(title: "Nama",controller:registerController.nameController ,),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),
                     CustomTextField(
                       isPasswordField: true,
                       title: "Password", passwordController: registerController.passwordController,),
-                      SpaceSizer(
+                      const SpaceSizer(
                       vertical: 1,
                     ),
                     CustomTextField(
                       isPasswordField: true,
                       title: "Confirm Password", passwordController: registerController.confirmPasswordController,),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),
                     CustomTextField(title: "Email", controller: registerController.emailController,),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),CustomTextField(title: "No Handhphone", controller: registerController.noHPController,),
-                    SpaceSizer(
+                    const SpaceSizer(
                       vertical: 1,
                     ),
                     LeaguespartanTextView(
                         value: "    By continuing, you agree to\nTerms of Use and Privacy Policy.",
                         color: AppColors.textblackcolour,
                       ),
-                      SpaceSizer(
+                      const SpaceSizer(
                     vertical: 2,
                   ),
                     CustomFlatButton(
@@ -85,10 +83,10 @@ class RegisterView extends StatelessWidget {
                       Get.off(const LoginView());
                     },
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
-                  Container(
+                  SizedBox(
                     width: SizeConfig.horizontal(80),
                     child: Divider(
                         height: SizeConfig.horizontal(0.5),
@@ -97,7 +95,7 @@ class RegisterView extends StatelessWidget {
                         endIndent: 5,
                         color: Colors.black26),
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomFlatButton(
@@ -109,7 +107,7 @@ class RegisterView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SpaceSizer(horizontal: 5,),
+                      const SpaceSizer(horizontal: 5,),
                       LeaguespartanTextView(
                         value: "Already Have Account? Login",
                         color: AppColors.textblackcolour,

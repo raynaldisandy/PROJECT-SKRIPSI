@@ -218,7 +218,7 @@ class ScanController extends GetxController {
       );
 
       // 9. Navigate ke ResultView
-      Get.to(() => ResultView());
+      Get.to(() => const ResultView());
     } catch (e) {
       // Error handling
       isLoading.value = false;

@@ -32,17 +32,17 @@ class Splashscreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                   SpaceSizer(horizontal: 20,),
+                   const SpaceSizer(horizontal: 20,),
                   LobstertwoTextView(value: "Skin",size: SizeConfig.blockSizeHorizontal * 25,
                   fontStyle: FontStyle.italic,
                   color: AppColors.textbluecolour,
                   ),
-                  SpaceSizer(horizontal: 2,)
+                  const SpaceSizer(horizontal: 2,)
                 ],
               ),
               Row(
                 children: [
-                  SpaceSizer(horizontal: 32,),
+                  const SpaceSizer(horizontal: 32,),
                   LobstertwoTextView(value: "Alert",size: SizeConfig.blockSizeHorizontal * 25,
                   fontStyle: FontStyle.italic,
                   color: AppColors.textbluecolour,),

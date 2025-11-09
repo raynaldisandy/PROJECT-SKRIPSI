@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -55,14 +54,14 @@ class LoginController extends GetxController {
             'status': 'User',
             'key_name': user.displayName!.substring(0, 1).toUpperCase(),
             'username': user.displayName,
-            'user_image': user.photoURL,
+            'user_image': user.photoURL ?? '',
+            'no_hp': '0',
             'description': '',
             'gender': '',
             'profiency': '',
             'city': '',
             'subdistrict': '',
           });
-
         } else {
           await users.doc(user!.uid).update(<Object, Object?>{
             'last_sign_in_time':
@@ -70,10 +69,8 @@ class LoginController extends GetxController {
           });
         }
 
-       
         isTapped.value = false;
         Get.offAll(const FrameView());
-
       } else {
         Snack.show(SnackbarType.error, 'invalid email',
             'Email tidak dapat ditemukan coba lagi');
@@ -82,7 +79,6 @@ class LoginController extends GetxController {
       log(e.toString());
     }
   }
-  
 
   dynamic signInWithEmailAndPassword() async {
     try {

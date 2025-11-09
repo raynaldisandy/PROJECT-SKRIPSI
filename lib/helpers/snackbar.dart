@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:skinalertsv2/Utils/app_colours.dart';
 import 'package:skinalertsv2/Utils/enum.dart';
 
 import '../utils/size_config.dart';

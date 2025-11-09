@@ -21,78 +21,85 @@ class ScanView extends StatelessWidget {
     SizeConfig().init(context);
     return Column(
       children: [
-                  SpaceSizer(vertical: 5
-                  ,),
-
-         const SkinalertLogo(
-              ),
-              Row(
-                children: [
-                   SpaceSizer(horizontal: 20,),
-                  LobstertwoTextView(value: "Skin",size: SizeConfig.blockSizeHorizontal * 25,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.textbluecolour,
-                  ),
-                  SpaceSizer(horizontal: 2,)
-                ],
-              ),
-              Row(
-                children: [
-                  SpaceSizer(horizontal: 32,),
-                  LobstertwoTextView(value: "Alert",size: SizeConfig.blockSizeHorizontal * 25,
-                  fontStyle: FontStyle.italic,
-                  color: AppColors.textbluecolour,),
-                ],
-              ),
-              SpaceSizer(vertical: 5,),
-        Container(
-          child: Center(
-            child: CustomFlatButton(
-              text: 'MULAI SCAN KULITMU DISINI',
-              // onTap: () => scanController.pickImage(ImageSource.gallery),
-              onTap: () => showDialog(
-                context: context,
-                builder: (ctx) => AlertDialog(
-                  title: const LeaguespartanTextView(
-                    value: "Pilih Directory",
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  content: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomFlatButton(
-                        text: '',
-                        width: SizeConfig.horizontal(5),
-                        height: SizeConfig.horizontal(2.5),
-                        onTap: () => scanController.pickImage(ImageSource.gallery,frameController.userName.value,),
-                        icon: Icons.photo,
-                        iconSize: SizeConfig.safeBlockHorizontal * 12,
-                        colorIconImage: AppColors.whitecard,
+        const SpaceSizer(
+          vertical: 5,
+        ),
+        const SkinalertLogo(),
+        Row(
+          children: [
+            const SpaceSizer(
+              horizontal: 20,
+            ),
+            LobstertwoTextView(
+              value: "Skin",
+              size: SizeConfig.blockSizeHorizontal * 25,
+              fontStyle: FontStyle.italic,
+              color: AppColors.textbluecolour,
+            ),
+            const SpaceSizer(
+              horizontal: 2,
+            )
+          ],
+        ),
+        Row(
+          children: [
+            const SpaceSizer(
+              horizontal: 32,
+            ),
+            LobstertwoTextView(
+              value: "Alert",
+              size: SizeConfig.blockSizeHorizontal * 25,
+              fontStyle: FontStyle.italic,
+              color: AppColors.textbluecolour,
+            ),
+          ],
+        ),
+        const SpaceSizer(
+          vertical: 5,
+        ),
+        Center(
+          child: CustomFlatButton(
+            text: 'MULAI SCAN KULITMU DISINI',
+            // onTap: () => scanController.pickImage(ImageSource.gallery),
+            onTap: () => showDialog(
+              context: context,
+              builder: (ctx) => AlertDialog(
+                title: const LeaguespartanTextView(
+                  value: "Pilih Directory",
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                content: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CustomFlatButton(
+                      text: '',
+                      width: SizeConfig.horizontal(5),
+                      height: SizeConfig.horizontal(2.5),
+                      onTap: () => scanController.pickImage(
+                        ImageSource.gallery,
+                        frameController.userName.value,
                       ),
-                      const SpaceSizer(
-                        horizontal: 7,
-                      ),
-                      CustomFlatButton(
-                        text: '',
-                        width: SizeConfig.horizontal(5),
-                        height: SizeConfig.horizontal(2.5),
-                        onTap: () => scanController.pickImage(ImageSource.camera,frameController.userName.value,),
-                        icon: Icons.camera,
-                        iconSize: SizeConfig.safeBlockHorizontal * 12,
-                        colorIconImage: AppColors.whitecard,
-                      ),
-                    ],
-                  ),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(ctx).pop();
-                      },
-                      child: const LeaguespartanTextView(value:"Cancel",color: Colors.red,),
+                      icon: Icons.photo,
+                      iconSize: SizeConfig.safeBlockHorizontal * 12,
+                      colorIconImage: AppColors.whitecard,
+                    ),
+                    const SpaceSizer(
+                      horizontal: 7,
                     ),
                   ],
                 ),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(ctx).pop();
+                    },
+                    child: const LeaguespartanTextView(
+                      value: "Cancel",
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
