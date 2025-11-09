@@ -52,22 +52,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         Gejala dari ketujuh jenis kanker kulit tersebut bervariasi, namun umumnya melibatkan perubahan warna kulit, bentuk tahi lalat yang tidak simetris, tepi yang tidak rata, ukuran yang membesar, hingga luka yang tidak sembuh dalam waktu lama. Penting untuk melakukan pemeriksaan kulit secara rutin, baik mandiri maupun oleh tenaga medis, terutama bagi individu dengan riwayat paparan sinar matahari berlebih atau faktor genetik. Dengan deteksi dini dan pengobatan yang tepat, peluang penyembuhan kanker kulit dapat meningkat secara signifikan.
     </p>
     
-    <h2>DIAGNOSIS AND TREATMENT</h2>
-    <p>
-        Diagnosis kanker kulit merupakan tahapan penting untuk memastikan jenis, stadium, serta strategi pengobatan yang tepat. Pemeriksaan dimulai dengan observasi klinis oleh dokter kulit, di mana area tubuh yang mencurigakan diperiksa secara visual untuk menilai bentuk, ukuran, warna, dan tekstur lesi. Dokter biasanya menggunakan dermatoskop, yaitu alat pembesar khusus yang memungkinkan visualisasi struktur mikroskopis kulit. Pada tahap ini, perubahan pada tahi lalat atau bercak kulit seperti asimetri, tepi tidak rata, warna tidak seragam, atau pertumbuhan cepat menjadi indikator penting adanya keganasan. Bila ditemukan indikasi mencurigakan, langkah berikutnya adalah biopsi kulit, di mana sebagian kecil jaringan diambil dan dianalisis di laboratorium histopatologi untuk menentukan apakah sel-sel tersebut termasuk ganas atau tidak.
-    </p>
-    
-    <p>
-        Dalam penelitian dermatologi modern, terutama berdasarkan dataset HAM10000, diagnosis kanker kulit kini semakin presisi dengan bantuan teknologi Artificial Intelligence (AI). Model berbasis Convolutional Neural Network (CNN) digunakan untuk mengenali pola-pola visual yang khas pada tujuh jenis utama kanker kulit, yaitu Actinic Keratoses (AKIEC), Basal Cell Carcinoma (BCC), Benign Keratosis-like Lesions (BKL), Dermatofibroma (DF), Melanocytic Nevi (NV), Vascular Lesions (VASC), dan Melanoma (MEL). Teknologi ini membantu dokter mempercepat diagnosis serta meningkatkan akurasi dalam membedakan antara lesi jinak dan ganas. Selain itu, pencitraan digital seperti Total Body Photography (TBP) dan Sequential Digital Dermoscopy Imaging (SDDI) juga digunakan untuk memantau perubahan lesi dari waktu ke waktu secara non-invasif.
-    </p>
-    
-    <p>
-        Setelah diagnosis ditegakkan, pengobatan kanker kulit dilakukan berdasarkan jenis dan tingkat keparahannya. Pada Basal Cell Carcinoma (BCC) dan Actinic Keratoses (AKIEC), tindakan umum meliputi eksisi bedah sederhana, krioterapi (pembekuan jaringan kanker dengan nitrogen cair), atau terapi fotodinamik (PDT) yang menggunakan kombinasi cahaya dan obat fotosensitizer untuk menghancurkan sel kanker. Untuk Melanoma (MEL) yang bersifat agresif, pengobatan biasanya memerlukan pembedahan lanjutan (wide local excision), disertai terapi imun (immunotherapy) seperti pembrolizumab atau nivolumab, dan targeted therapy untuk menghambat pertumbuhan sel kanker pada tingkat genetik. Sementara itu, lesi jinak seperti Dermatofibroma (DF) atau Benign Keratosis-like Lesions (BKL) umumnya hanya diobservasi, kecuali menimbulkan gangguan fungsional atau estetika.
-    </p>
-    
-    <p>
-        Selain terapi medis, aspek perawatan pencegahan (preventive care) juga menjadi bagian penting dalam manajemen kanker kulit. Pasien disarankan untuk rutin menggunakan tabir surya dengan SPF minimal 30, menghindari paparan sinar matahari langsung antara pukul 10.00–16.00, mengenakan pakaian pelindung seperti topi dan kacamata UV, serta memeriksa kondisi kulit secara mandiri setiap bulan. Individu dengan riwayat keluarga penderita kanker kulit atau dengan kulit terang perlu melakukan pemeriksaan dermatologi profesional secara berkala, minimal dua kali setahun. Pendekatan terpadu yang melibatkan diagnosis akurat, pengobatan berbasis bukti, dan kesadaran diri dalam pencegahan terbukti efektif menurunkan tingkat kekambuhan serta meningkatkan prognosis jangka panjang bagi pasien kanker kulit.
-    </p>
 </div>
     """;
 
@@ -292,8 +276,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                     fontWeight: FontWeight.bold,
                                   ),
                                   content: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       CustomFlatButton(
                                         text: '',
@@ -305,8 +288,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                         ),
                                         icon: Icons.photo,
                                         iconSize:
-                                            SizeConfig.safeBlockHorizontal *
-                                                12,
+                                            SizeConfig.safeBlockHorizontal * 12,
                                         colorIconImage: AppColors.whitecard,
                                       ),
                                       const SpaceSizer(
@@ -322,8 +304,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                         ),
                                         icon: Icons.camera,
                                         iconSize:
-                                            SizeConfig.safeBlockHorizontal *
-                                                12,
+                                            SizeConfig.safeBlockHorizontal * 12,
                                         colorIconImage: AppColors.whitecard,
                                       ),
                                     ],

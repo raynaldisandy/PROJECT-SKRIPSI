@@ -13,7 +13,15 @@ import 'package:skinalertsv2/Widget/custom_flatbutton.dart';
 import 'package:skinalertsv2/Widget/user_info.dart';
 
 class ResultView extends StatelessWidget {
-  const ResultView({super.key});
+  const ResultView(
+      {super.key,
+      required this.scanImage,
+      required this.sicknessResult,
+      required this.scanAccuracy});
+
+  final String scanImage;
+  final String sicknessResult;
+  final String scanAccuracy;
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +85,15 @@ class ResultView extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: BorderRadius.all(
                             Radius.circular(SizeConfig.horizontal(2))),
-                        child: Image.file(
-                          scanController.imageSkin!,
-                          fit: BoxFit.fill,
-                        )),
+                        child: scanController.imageSkin == null
+                            ? Image.network(
+                                scanImage,
+                                fit: BoxFit.fill,
+                              )
+                            : Image.file(
+                                scanController.imageSkin!,
+                                fit: BoxFit.fill,
+                              )),
                   ),
                   const SpaceSizer(
                     vertical: 2,
@@ -94,27 +107,23 @@ class ResultView extends StatelessWidget {
                           BorderRadius.circular(SizeConfig.horizontal(2)),
                     ),
                     child: Center(
-                      child: Obx(
-                        () => LeaguespartanTextView(
-                          value: scanController.sicknessResult.value,
-                          size: SizeConfig.safeBlockHorizontal * 4,
-                          color: AppColors.textwhitecolour,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      child: LeaguespartanTextView(
+                        value: sicknessResult,
+                        size: SizeConfig.safeBlockHorizontal * 4,
+                        color: AppColors.textwhitecolour,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   const SpaceSizer(
                     vertical: 2,
                   ),
-                  Obx(
-                    () => LeaguespartanTextView(
-                      value: '${scanController.scanAccuracy.value}%',
-                      size: SizeConfig.safeBlockHorizontal * 8,
-                      color: Colors.green,
-                      alignText: AlignTextType.center,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  LeaguespartanTextView(
+                    value: '$scanAccuracy %',
+                    size: SizeConfig.safeBlockHorizontal * 8,
+                    color: Colors.green,
+                    alignText: AlignTextType.center,
+                    fontWeight: FontWeight.bold,
                   ),
                   const SpaceSizer(
                     vertical: 2,

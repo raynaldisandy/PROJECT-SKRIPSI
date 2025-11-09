@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skinalertsv2/Controlers/frame_controller.dart';
+import 'package:skinalertsv2/Pages/result_view.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
@@ -129,7 +130,14 @@ class HistoryView extends StatelessWidget {
                                 height: SizeConfig.horizontal(0.8),
                                 text: "Details",
                                 textSize: 3,
-                                onTap: () {},
+                                onTap: () => Get.to(ResultView(
+                                  scanAccuracy: frameController
+                                      .historyList[index].scanAccuracy,
+                                  scanImage: frameController
+                                      .historyList[index].imageScan,
+                                  sicknessResult: frameController
+                                      .historyList[index].virusDetected,
+                                )),
                               )
                             ],
                           ),

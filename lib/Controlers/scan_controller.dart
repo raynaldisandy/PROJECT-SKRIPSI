@@ -218,7 +218,11 @@ class ScanController extends GetxController {
       );
 
       // 9. Navigate ke ResultView
-      Get.to(() => const ResultView());
+      Get.to(() => ResultView(
+            scanAccuracy: scanAccuracy.value,
+            scanImage: imageSkin.toString(),
+            sicknessResult: sicknessResult.value,
+          ));
     } catch (e) {
       // Error handling
       isLoading.value = false;
