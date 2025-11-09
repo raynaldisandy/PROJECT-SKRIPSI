@@ -291,22 +291,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                             SizeConfig.safeBlockHorizontal * 12,
                                         colorIconImage: AppColors.whitecard,
                                       ),
-                                      const SpaceSizer(
-                                        horizontal: 7,
-                                      ),
-                                      CustomFlatButton(
-                                        text: '',
-                                        width: SizeConfig.horizontal(5),
-                                        height: SizeConfig.horizontal(2.5),
-                                        onTap: () => scanController.pickImage(
-                                          ImageSource.camera,
-                                          frameController.userName.value,
-                                        ),
-                                        icon: Icons.camera,
-                                        iconSize:
-                                            SizeConfig.safeBlockHorizontal * 12,
-                                        colorIconImage: AppColors.whitecard,
-                                      ),
                                     ],
                                   ),
                                   actions: <Widget>[

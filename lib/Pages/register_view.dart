@@ -31,52 +31,68 @@ class RegisterView extends StatelessWidget {
             statusBarColor: AppColors.backgroundcolor,
             colorScaffold: AppColors.backgroundcolor,
             statusBarBrightness: Brightness.light,
-            view:Center(
+            view: Center(
               child: Column(
                 children: [
-                const SpaceSizer(
-                      vertical: 3,
-                    ),
-                    LobstertwoTextView(
-                      value: "Register",
-                      size: SizeConfig.blockSizeHorizontal * 10,
-                      color: AppColors.textbluecolour,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    const SpaceSizer(
-                      vertical: 1,
-                    ),
-                    CustomTextField(title: "Nama",controller:registerController.nameController ,),
-                    const SpaceSizer(
-                      vertical: 1,
-                    ),
-                    CustomTextField(
-                      isPasswordField: true,
-                      title: "Password", passwordController: registerController.passwordController,),
-                      const SpaceSizer(
-                      vertical: 1,
-                    ),
-                    CustomTextField(
-                      isPasswordField: true,
-                      title: "Confirm Password", passwordController: registerController.confirmPasswordController,),
-                    const SpaceSizer(
-                      vertical: 1,
-                    ),
-                    CustomTextField(title: "Email", controller: registerController.emailController,),
-                    const SpaceSizer(
-                      vertical: 1,
-                    ),CustomTextField(title: "No Handhphone", controller: registerController.noHPController,),
-                    const SpaceSizer(
-                      vertical: 1,
-                    ),
-                    LeaguespartanTextView(
-                        value: "    By continuing, you agree to\nTerms of Use and Privacy Policy.",
-                        color: AppColors.textblackcolour,
-                      ),
-                      const SpaceSizer(
+                  const SpaceSizer(
+                    vertical: 3,
+                  ),
+                  LobstertwoTextView(
+                    value: "Register",
+                    size: SizeConfig.blockSizeHorizontal * 10,
+                    color: AppColors.textbluecolour,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  CustomTextField(
+                    title: "Nama",
+                    controller: registerController.nameController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  CustomTextField(
+                    isPasswordField: true,
+                    title: "Password",
+                    passwordController: registerController.passwordController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  CustomTextField(
+                    isPasswordField: true,
+                    title: "Confirm Password",
+                    passwordController:
+                        registerController.confirmPasswordController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  CustomTextField(
+                    title: "Email",
+                    controller: registerController.emailController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  CustomTextField(
+                    title: "No Handhphone",
+                    controller: registerController.noHPController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 1,
+                  ),
+                  LeaguespartanTextView(
+                    value:
+                        "    By continuing, you agree to\nTerms of Use and Privacy Policy.",
+                    color: AppColors.textblackcolour,
+                  ),
+                  const SpaceSizer(
                     vertical: 2,
                   ),
-                    CustomFlatButton(
+                  CustomFlatButton(
                     text: "Create Account",
                     onTap: () async {
                       await registerController.signUpWithEmailAndPassword();
@@ -107,18 +123,23 @@ class RegisterView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SpaceSizer(horizontal: 5,),
+                      const SpaceSizer(
+                        horizontal: 5,
+                      ),
                       LeaguespartanTextView(
                         value: "Already Have Account? Login",
                         color: AppColors.textblackcolour,
                       ),
                       CustomTextbutton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         text: "Now        ",
                       ),
                     ],
                   )
-              ],),
-            )
-        ));}
+                ],
+              ),
+            )));
+  }
 }
