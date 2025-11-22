@@ -54,7 +54,10 @@ class LoginView extends StatelessWidget {
                   const SpaceSizer(
                     vertical: 2,
                   ),
-                  CustomTextField(title: "Email",controller: loginController.emailController,),
+                  CustomTextField(
+                    title: "Email",
+                    controller: loginController.emailController,
+                  ),
                   const SpaceSizer(
                     vertical: 2,
                   ),
@@ -69,7 +72,56 @@ class LoginView extends StatelessWidget {
                         horizontal: 10,
                       ),
                       CustomTextbutton(
-                          onPressed: () {}, text: 'Forgot Password'),
+                          onPressed: () => showDialog(
+                                context: context,
+                                builder: (ctx) => AlertDialog(
+                                  title: const LeaguespartanTextView(
+                                    value:
+                                        "Masukkan email-mu untuk reset password",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  content: SizedBox(
+                                    width: SizeConfig.horizontal(20),
+                                    height: SizeConfig.horizontal(35),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            CustomTextField(
+                                              controller: loginController
+                                                  .emailController,
+                                              title: 'Email',
+                                              width: SizeConfig.horizontal(15),
+                                              height: SizeConfig.horizontal(25),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    CustomFlatButton(
+                                        width: 40,
+                                        height: 5,
+                                        text: 'Reset Password',
+                                        onTap: () =>
+                                            loginController.resetPassword()),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: const LeaguespartanTextView(
+                                        value: "Cancel",
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                          text: 'Forgot Password?'),
                     ],
                   ),
                   CustomFlatButton(
@@ -102,7 +154,9 @@ class LoginView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SpaceSizer(horizontal: 5,),
+                      const SpaceSizer(
+                        horizontal: 5,
+                      ),
                       LeaguespartanTextView(
                         value: "Don't Have An Account? Create",
                         color: AppColors.textblackcolour,
