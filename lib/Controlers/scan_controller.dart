@@ -239,8 +239,7 @@ class ScanController extends GetxController {
 
   Future<void> _uploadImageToServer(File imageFile) async {
     try {
-      final uri =
-          Uri.parse('https://flask-api-469315.dt.r.appspot.com/predict');
+      final uri = Uri.parse('http://skin-alert-479308.dt.r.appspot.com');
       final request = http.MultipartRequest('POST', uri);
 
       request.files
