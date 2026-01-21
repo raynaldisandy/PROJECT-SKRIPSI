@@ -87,6 +87,19 @@ class ScanView extends StatelessWidget {
                     const SpaceSizer(
                       horizontal: 7,
                     ),
+
+                    CustomFlatButton(
+                      text: '',
+                      width: SizeConfig.horizontal(5),
+                      height: SizeConfig.horizontal(2.5),
+                      onTap: () => scanController.pickImage(
+                        ImageSource.camera,
+                        frameController.userName.value,
+                      ),
+                      icon: Icons.camera_alt_rounded,
+                      iconSize: SizeConfig.safeBlockHorizontal * 12,
+                      colorIconImage: AppColors.whitecard,
+                    ), 
                   ],
                 ),
                 actions: <Widget>[

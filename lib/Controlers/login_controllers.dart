@@ -76,7 +76,7 @@ class LoginController extends GetxController {
             'Email tidak dapat ditemukan coba lagi');
       }
     } catch (e) {
-      log(e.toString());
+      log('tetot${e.toString()}');
     }
   }
 

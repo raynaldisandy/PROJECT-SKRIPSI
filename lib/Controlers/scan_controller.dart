@@ -15,6 +15,8 @@ import 'package:skinalertsv2/Pages/result_view.dart';
 import 'package:skinalertsv2/Utils/enum.dart';
 import 'package:skinalertsv2/helpers/snackbar.dart';
 
+import 'package:http_parser/http_parser.dart';
+
 class ScanController extends GetxController {
   File? imageSkin;
   RxString result = RxString('');
@@ -237,37 +239,94 @@ class ScanController extends GetxController {
     }
   }
 
+  // Future<void> _uploadImageToServer(File imageFile) async {
+  //   try {
+  //     // final uri = Uri.parse('http://skin-alert-479308.dt.r.appspot.com');
+  //     final uri =
+  //         Uri.parse('https://skin-alert-479308.dt.r.appspot.com/predict');
+
+  //     final request = http.MultipartRequest('POST', uri);
+
+  //     request.headers.addAll({
+  //       'Accept': 'application/json',
+  //     });
+
+  //     request.files.add(
+  //       await http.MultipartFile.fromPath('file', imageFile.path,
+  //           filename: imageFile.path.split('/').last, ),
+  //     );
+
+  //     final response = await request.send();
+  //     final responseData = await response.stream.bytesToString();
+
+  //     if (response.statusCode == 200) {
+  //       final decoded = json.decode(responseData);
+  //       double confidence = (decoded['confidence'] as num).toDouble();
+  //       String confidenceStr = confidence.toStringAsFixed(2);
+
+  //       result.value =
+  //           '${decoded['predicted_class']} dengan tingkat keyakinan\n$confidenceStr%';
+  //       sicknessResult.value = decoded['predicted_class'];
+  //       scanAccuracy.value = confidenceStr;
+  //       log('Berhasil: ${result.value}');
+  //     } else {
+  //       result.value = 'Server error: ${response.statusCode} - $responseData';
+  //       log('Gagal: ${responseData}');
+  //       Snack.show(SnackbarType.error, 'Error Upload File Failed',
+  //           'Coba kembali beberapa saat...');
+  //     }
+  //   } catch (e) {
+  //     result.value = 'Upload error: ${e.toString()}';
+  //     log('Upload error: $e');
+  //     rethrow;
+  //   } finally {
+  //     update();
+  //   }
+  // }
+
   Future<void> _uploadImageToServer(File imageFile) async {
     try {
-      final uri = Uri.parse('http://skin-alert-479308.dt.r.appspot.com');
+      final uri = Uri.parse(
+        'https://skin-cancer-api-648164371592.asia-southeast2.run.app/predict',
+      );
+
       final request = http.MultipartRequest('POST', uri);
 
-      request.files
-          .add(await http.MultipartFile.fromPath('file', imageFile.path));
+      final ext = imageFile.path.split('.').last.toLowerCase();
+      final mime = ext == 'png' ? 'png' : 'jpeg';
+
+      request.headers['Accept'] = 'application/json';
+
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          'file',
+          imageFile.path,
+          filename: imageFile.path.split('/').last,
+          contentType: MediaType('image', mime),
+        ),
+      );
 
       final response = await request.send();
-      final responseData = await response.stream.bytesToString();
+      final responseBody = await response.stream.bytesToString();
 
-      if (response.statusCode == 200) {
-        final decoded = json.decode(responseData);
-        double confidence = (decoded['confidence'] as num).toDouble();
-        String confidenceStr = confidence.toStringAsFixed(2);
-
-        result.value =
-            '${decoded['predicted_class']} dengan tingkat keyakinan\n$confidenceStr%';
-        sicknessResult.value = decoded['predicted_class'];
-        scanAccuracy.value = confidenceStr;
-        log('Berhasil: ${result.value}');
-      } else {
-        result.value = 'Server error: ${response.statusCode} - $responseData';
-        log('Gagal: ${response.statusCode}');
-        Snack.show(SnackbarType.error, 'Error Upload File Failed',
-            'Coba kembali beberapa saat...');
+      if (response.statusCode != 200) {
+        throw Exception(
+          'HTTP ${response.statusCode}: $responseBody',
+        );
       }
-    } catch (e) {
-      result.value = 'Upload error: ${e.toString()}';
-      log('Upload error: $e');
-      rethrow;
+
+      final decoded = json.decode(responseBody);
+
+      // final double confidence =
+      //     (decoded['confidence'] as num).toDouble() * 100;
+
+      final confidence = decoded['confidence'];
+
+      result.value =
+          '${decoded['predicted_class']} dengan tingkat keyakinan\n $confidence';
+
+      sicknessResult.value = decoded['predicted_class'];
+      scanAccuracy.value = confidence;
     } finally {
       update();
     }

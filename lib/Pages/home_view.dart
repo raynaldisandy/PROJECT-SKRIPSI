@@ -79,9 +79,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     ''';
 
     final List<String> imgList = [
-      AssetList.exampleSkinCarousale,
-      AssetList.exampleSkinCarousale,
-      AssetList.exampleSkinCarousale,
+      AssetList.carousel1,
+      AssetList.carousel2,
+      AssetList.carousel3,
     ];
     final FrameController frameController = Get.put(FrameController());
     SizeConfig().init(context);
@@ -287,6 +287,22 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                           frameController.userName.value,
                                         ),
                                         icon: Icons.photo,
+                                        iconSize:
+                                            SizeConfig.safeBlockHorizontal * 12,
+                                        colorIconImage: AppColors.whitecard,
+                                      ),
+                                      const SpaceSizer(
+                                        horizontal: 7,
+                                      ),
+                                      CustomFlatButton(
+                                        text: '',
+                                        width: SizeConfig.horizontal(5),
+                                        height: SizeConfig.horizontal(2.5),
+                                        onTap: () => scanController.pickImage(
+                                          ImageSource.camera,
+                                          frameController.userName.value,
+                                        ),
+                                        icon: Icons.camera_alt_rounded,
                                         iconSize:
                                             SizeConfig.safeBlockHorizontal * 12,
                                         colorIconImage: AppColors.whitecard,
