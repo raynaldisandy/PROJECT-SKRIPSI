@@ -119,7 +119,7 @@ class ResultView extends StatelessWidget {
                     vertical: 2,
                   ),
                   LeaguespartanTextView(
-                    value: '$scanAccuracy %',
+                    value: scanAccuracy,
                     size: SizeConfig.safeBlockHorizontal * 8,
                     color: Colors.green,
                     alignText: AlignTextType.center,
