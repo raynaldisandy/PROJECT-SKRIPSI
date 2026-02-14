@@ -95,7 +95,7 @@ class CustomFlatButton extends StatelessWidget {
                               ? textColorLoading ?? AppColors.textwhitecolour
                               : textColor ?? AppColors.textwhitecolour),
                     ),
-                  if (subText == null || subText == '')
+                  if (subText == '')
                     const SizedBox.shrink()
                   else
                     text == ''

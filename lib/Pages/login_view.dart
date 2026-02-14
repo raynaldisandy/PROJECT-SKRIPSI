@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:skinalertsv2/Controlers/login_controllers.dart';
 import 'package:skinalertsv2/Frame/frame_scaffold.dart';
+import 'package:skinalertsv2/Pages/register_view.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
 import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
@@ -17,6 +20,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
             systemNavigationBarColor: AppColors.textwhitecolour,
@@ -31,7 +35,7 @@ class LoginView extends StatelessWidget {
             view: Center(
               child: Column(
                 children: [
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 4,
                   ),
                   LobstertwoTextView(
@@ -47,34 +51,89 @@ class LoginView extends StatelessWidget {
                     color: AppColors.textbluecolour,
                     fontWeight: FontWeight.bold,
                   ),
-                  SpaceSizer(
-                    vertical: 2,
-                  ),
-                  CustomTextField(title: ""),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomTextField(
-                    title: "",
+                    title: "Email",
+                    controller: loginController.emailController,
+                  ),
+                  const SpaceSizer(
+                    vertical: 2,
+                  ),
+                  CustomTextField(
+                    title: "Password",
+                    passwordController: loginController.passwordController,
                     isPasswordField: true,
                   ),
                   Row(
                     children: [
-                      SpaceSizer(
+                      const SpaceSizer(
                         horizontal: 10,
                       ),
                       CustomTextbutton(
-                          onPressed: () {}, text: 'Forgot Password'),
+                          onPressed: () => showDialog(
+                                context: context,
+                                builder: (ctx) => AlertDialog(
+                                  title: const LeaguespartanTextView(
+                                    value:
+                                        "Masukkan email-mu untuk reset password",
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  content: SizedBox(
+                                    width: SizeConfig.horizontal(20),
+                                    height: SizeConfig.horizontal(35),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            CustomTextField(
+                                              controller: loginController
+                                                  .emailController,
+                                              title: 'Email',
+                                              width: SizeConfig.horizontal(15),
+                                              height: SizeConfig.horizontal(25),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    CustomFlatButton(
+                                        width: 40,
+                                        height: 5,
+                                        text: 'Reset Password',
+                                        onTap: () =>
+                                            loginController.resetPassword()),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: const LeaguespartanTextView(
+                                        value: "Cancel",
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                          text: 'Forgot Password?'),
                     ],
                   ),
                   CustomFlatButton(
                     text: "Log in",
-                    onTap: () {},
+                    onTap: () async {
+                      await loginController.signInWithEmailAndPassword();
+                    },
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
-                  Container(
+                  SizedBox(
                     width: SizeConfig.horizontal(80),
                     child: Divider(
                         height: SizeConfig.horizontal(0.5),
@@ -83,25 +142,27 @@ class LoginView extends StatelessWidget {
                         endIndent: 5,
                         color: Colors.black26),
                   ),
-                  SpaceSizer(
+                  const SpaceSizer(
                     vertical: 2,
                   ),
                   CustomFlatButton(
                     text: "Continue With Google",
-                    onTap: () {},
+                    onTap: () => loginController.signInWithGoogle(),
                     backgroundColor: AppColors.buttoncolorblue,
                     image: AssetList.googleLogo,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SpaceSizer(horizontal: 5,),
+                      const SpaceSizer(
+                        horizontal: 5,
+                      ),
                       LeaguespartanTextView(
                         value: "Don't Have An Account? Create",
                         color: AppColors.textblackcolour,
                       ),
                       CustomTextbutton(
-                        onPressed: () {},
+                        onPressed: () => Get.to(const RegisterView()),
                         text: "Now        ",
                       ),
                     ],

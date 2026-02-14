@@ -11,5 +11,8 @@ class AssetList {
   static String iconsScan = 'assets/icons_scan.png';
   static String iconsHistory = 'assets/icons_history.png';
   static String iconsProfile = 'assets/icons_profile.png';
+  static String carousel1 = 'assets/poster1.png';
+  static String carousel2 = 'assets/poster2.png';
+  static String carousel3 = 'assets/poster3.png';
  
 }

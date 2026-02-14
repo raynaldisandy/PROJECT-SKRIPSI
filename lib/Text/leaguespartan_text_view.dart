@@ -56,7 +56,7 @@ class LeaguespartanTextView  extends StatelessWidget {
   }
 }
 
-class leagueSpartanStyle {
+class LeagueSpartanStyle {
   TextStyle labelStyle(Color? color) {
     return GoogleFonts.leagueSpartan(
       color: color ?? Colors.grey,

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "769327705975",
+    "project_id": "skin-alert-1e6d4",
+    "storage_bucket": "skin-alert-1e6d4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769327705975:android:52e9ab044d824baf7dfb72",
+        "android_client_info": {
+          "package_name": "com.example.skinalertsv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx0I8qJQXkLSgrluSFUpf27LVOxawqpyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

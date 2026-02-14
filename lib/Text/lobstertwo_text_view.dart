@@ -55,7 +55,7 @@ class LobstertwoTextView extends StatelessWidget {
   }
 }
 
-class lobsterTwoStyle {
+class LobsterTwoStyle {
   TextStyle labelStyle(Color? color) {
     return GoogleFonts.lobsterTwo(
       color: color ?? Colors.grey,

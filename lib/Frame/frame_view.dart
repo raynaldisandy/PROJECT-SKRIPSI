@@ -31,6 +31,8 @@ class _FrameViewState extends State<FrameView> {
       child: Obx(() => FrameBottomNav(
           onBack: () => _controller.onTapNav(0),
           isUseLeading: _useBackButton(),
+          color: _appBarColor(),
+          
           isImplyLeading: false,
           elevation: 0,
           heightBar: _whenUseHeightBar(),
@@ -41,9 +43,17 @@ class _FrameViewState extends State<FrameView> {
     );
   }
 
+  Color _appBarColor() {
+    if (_controller.defaultIndex.value == 1) {
+      return AppColors.buttoncolorgreendark;
+    } else {
+      return AppColors.backgroundcolor;
+    }
+  }
+
   //need maintenance
   Color _colorStatusBar() {
-    if (_controller.defaultIndex.value == 1 ||
+    if (_controller.defaultIndex.value == 5 ||
         _controller.defaultIndex.value == 2) {
       return Colors.black;
     } else {
@@ -62,7 +72,7 @@ class _FrameViewState extends State<FrameView> {
   }
 
   double _whenUseHeightBar() {
-    if (_controller.defaultIndex.value == 5 ) {
+    if (_controller.defaultIndex.value == 1 ) {
       return SizeConfig.horizontal(12);
     } else {
       return 0;

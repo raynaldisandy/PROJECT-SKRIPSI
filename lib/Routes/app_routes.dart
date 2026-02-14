@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:skinalertsv2/Pages/login_view.dart';
 import 'package:skinalertsv2/splashscreen.dart';
 import 'routes_name.dart';
 
@@ -16,10 +17,10 @@ class AppRoutes {
     //     page: () => const FrameView(),
     //     transition: Transition.fadeIn,
     //     transitionDuration: const Duration(milliseconds: 1000)),
-    // GetPage<dynamic>(
-    //     name: RoutesName.loginRoute,
-    //     page: () => const LoginView(),
-    //     transition: Transition.fadeIn,
-    //     transitionDuration: const Duration(milliseconds: 1000)),
+    GetPage<dynamic>(
+        name: RoutesName.loginRoute,
+        page: () => const LoginView(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(milliseconds: 1000)),
   ];
 }

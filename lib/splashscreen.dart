@@ -15,7 +15,7 @@ class Splashscreen extends StatelessWidget {
     
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-          systemNavigationBarColor: AppColors.textwhitecolour,
+          systemNavigationBarColor: AppColors.backgroundcolor,
           systemNavigationBarIconBrightness: Brightness.dark), 
       child: FrameScaffold(
         heightBar: 0,
@@ -23,7 +23,7 @@ class Splashscreen extends StatelessWidget {
         color: AppColors.backgroundcolor,
         statusBarColor: AppColors.backgroundcolor,
         colorScaffold: AppColors.backgroundcolor,
-        statusBarBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
         view:Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -32,17 +32,17 @@ class Splashscreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                   SpaceSizer(horizontal: 20,),
+                   const SpaceSizer(horizontal: 20,),
                   LobstertwoTextView(value: "Skin",size: SizeConfig.blockSizeHorizontal * 25,
                   fontStyle: FontStyle.italic,
                   color: AppColors.textbluecolour,
                   ),
-                  SpaceSizer(horizontal: 2,)
+                  const SpaceSizer(horizontal: 2,)
                 ],
               ),
               Row(
                 children: [
-                  SpaceSizer(horizontal: 32,),
+                  const SpaceSizer(horizontal: 32,),
                   LobstertwoTextView(value: "Alert",size: SizeConfig.blockSizeHorizontal * 25,
                   fontStyle: FontStyle.italic,
                   color: AppColors.textbluecolour,),

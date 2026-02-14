@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:skinalertsv2/Text/leaguespartan_text_view.dart';
-import 'package:skinalertsv2/Text/lobstertwo_text_view.dart';
 import 'package:skinalertsv2/Utils/app_colours.dart';
 import 'package:skinalertsv2/Utils/assets_list.dart';
 import 'package:skinalertsv2/Utils/size_config.dart';
 import 'package:skinalertsv2/Utils/space_sizer.dart';
 import 'package:skinalertsv2/Widget/custom_flatbutton.dart';
-import 'package:skinalertsv2/Widget/custom_textfield.dart';
 
 class AdminView extends StatelessWidget {
   const AdminView({super.key});
@@ -19,27 +16,27 @@ class AdminView extends StatelessWidget {
         color: AppColors.backgroundcolor,
         child: Column(
           children: [
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 10,
                 ),
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius: SizeConfig.horizontal(10),
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 5,
                 ),
                 LeaguespartanTextView(
                   value: "Super Admin",
                   color: AppColors.textblackcolour,
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 10,
                 ),
                 CustomFlatButton(
@@ -53,29 +50,29 @@ class AdminView extends StatelessWidget {
                 ),
               ],
             ),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 2,
             ),
             Container(
-              child: Center(
-                child: LeaguespartanTextView(
-                  value: "Poster Card",
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(SizeConfig.horizontal(2)),
                 color: AppColors.buttoncolorblue,
               ),
               width: SizeConfig.horizontal(90),
               height: SizeConfig.horizontal(10),
+              child: const Center(
+                child: LeaguespartanTextView(
+                  value: "Poster Card",
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 2,
             ),
             Row(
               children: [
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 5,
                 ),
                 CustomFlatButton(
@@ -89,7 +86,7 @@ class AdminView extends StatelessWidget {
                   height: SizeConfig.horizontal(1),
                   onTap: () {},
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 3,
                 ),
                 CustomFlatButton(
@@ -103,7 +100,7 @@ class AdminView extends StatelessWidget {
                   height: SizeConfig.horizontal(1),
                   onTap: () {},
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 3,
                 ),
                 CustomFlatButton(
@@ -117,25 +114,23 @@ class AdminView extends StatelessWidget {
                   height: SizeConfig.horizontal(1),
                   onTap: () {},
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 3,
                 ),
               ],
             ),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 3,
             ),
-            Container(
-              child: Center(
-                child: Image.asset(AssetList.posterlogo),
-              ),
+            Center(
+              child: Image.asset(AssetList.posterlogo),
             ),
-            SpaceSizer(
+            const SpaceSizer(
               vertical: 30,
             ),
             Row(
               children: [
-                Spacer(),
+                const Spacer(),
                 CustomFlatButton(
                   text: "Submit",
                   radius: SizeConfig.horizontal(0.5),
@@ -143,7 +138,7 @@ class AdminView extends StatelessWidget {
                   colorIconImage: AppColors.textwhitecolour,
                   onTap: () {},
                 ),
-                SpaceSizer(
+                const SpaceSizer(
                   horizontal: 5,
                 )
               ],
